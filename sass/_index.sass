@@ -1,0 +1,832 @@
+.banner-wrap
+	position: relative
+	margin-bottom: 15px
+	.btn-toggle
+		+r(750)
+			right: 0
+			top: 50%
+			margin-top: -20px
+			margin-right: 0
+			height: 40px
+			width: 30px
+			background: $bg 
+			border-radius: 0 0 0 10px
+			+tr(transform .5s)
+			+transform(translateX(0))
+			&:before
+				content: ""
+				position: absolute
+				bottom: 14px
+				right: 0
+				background: $title
+				height: 2px
+				width: 12px
+				+rotate(-60)
+				+transition(background-color .2s, transform .3s)
+			&:after
+				content: ""
+				position: absolute
+				top: 14px
+				right: 0
+				left: auto
+				background: $title
+				height: 2px
+				width: 12px
+				+rotate(60)
+				+transition(background-color .2s, transform .3s)
+			&:active
+				&:before
+					+rotate(-90)
+					background-color: #F71B10 
+				&:after
+					+rotate(90)
+					background-color: #F71B10 
+		&.is-active
+			+r(750)
+				+transform(translateX(-275px))
+				&:before
+					bottom: 14px
+					+rotate(-120)
+				&:after
+					+rotate(120)
+				&:active
+					&:before
+						+rotate(-90)
+					&:after
+						+rotate(90)
+.banner
+	position: relative
+	z-index: 1
+	display: block
+	+cover
+	cursor: pointer
+	&:before
+		content: ""
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+		background: rgba(#000, .5)
+		+tr(background .2s)
+	&:hover
+		&:before
+			background-color: rgba(#410e0b, .7)
+	&__parent
+		position: relative
+		z-index: 5
+		height: 170px
+		+vertical
+		+tr(height .3s)
+		+r(992)
+			height: 165px
+		+r(768)
+			height: 120px
+			padding: 0 35px 
+			.strip
+				display: none
+	&__vertical
+		display: inline-block
+		vertical-align: middle
+		width: 100%
+		.slick-list
+			height: 194px !important
+			+r(768)
+				height: 153px !important
+		.slick-slide
+			width: 100% !important
+	&__info
+		vertical-align: middle
+		text-transform: none 
+		color: #FFF
+		+reg
+		font-size: 14px
+		+r(768)
+			display: none
+	.title
+		vertical-align: middle
+	&_big
+		overflow: hidden
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			right: 0
+			left: 0
+			bottom: 0
+			background-color: rgba(#410e0b, .7)  
+		.banner__parent
+			height: 185px
+			+r(992)
+				height: 180px
+			+r(768)
+				height: 155px
+				.strip
+					display: block
+		&.is-active
+			min-height: 320px
+
+	&_marg
+		margin-bottom: 15px 
+		+r(750)
+			margin-bottom: 0
+	&.is-active
+		.banner__parent
+			height: calc(100vh - 110px)
+			+r(750)
+				height: calc(100vh - 90px)
+		.fact
+			display: block
+	&.is-covered
+		&:before
+			background-color: rgba(#410e0b, .7)
+			
+.fact
+	display: none
+	margin-top: 80px
+	color: #FFF
+	position: relative
+	+r(768)
+		margin-top: 55px
+	.arr-top,
+	.arr-bottom
+		position: absolute
+		left: 50%
+		margin-left: -50px 
+	.arr-top
+		top: -36px
+	.arr-bottom
+		bottom: -36px
+	&__info
+		display: block
+		+reg
+		font-size: 14px		
+		margin: 8px 0
+		+r(768)
+			margin: 15px 0 
+		&:first-child
+			margin-bottom: 0
+			+r(768)
+				margin-bottom: 6px
+	&__main
+		line-height: 1
+		div
+			font-size: 140px
+			+exo
+			+bold
+	+r(768)
+		div
+			font-size: 72px
+			
+		  
+
+.title
+	display: inline-block
+	font-size: 24px
+	color: $text
+	text-transform: uppercase
+	+exo
+	+semibold
+	+r(992)
+		font-size: 18px 
+	+r(750)
+		font-size: 16px
+	&_white
+		color: #fff 
+	&_big
+		font-size: 36px
+		+r(750)
+			font-size: 20px
+	&_slide
+		position: relative
+	&_small
+		font-size: 14px
+		color: $title
+		+r(992)
+			font-size: 12px  
+	&_link
+		a
+			color: $text 
+			+transition(color .2s)
+			&:hover
+				color: $red
+			&:active
+				color: $red-action 
+	.arr-right,
+	.arr-left
+		+r(750)
+			display: none
+.strip
+	width: 60px
+	height: 2px
+	margin: 20px auto
+	background: #FFF 
+	+r(992)
+		margin: 10px auto 
+.btn-toggle
+	display: inline-block
+	position: absolute
+	z-index: 5
+	bottom: 0
+	right: 50%
+	margin-right: -15px 
+	height: 20px
+	width: 30px
+	background: $bg 
+	border-radius: 10px 0 0 0
+	&.is-active
+		&:before
+			bottom: 3px
+			+rotate(30)
+		&:after
+			bottom: 3px
+			+rotate(-30)
+		&:active
+			&:before,
+			&:after
+				+rotate(0)
+	&:hover
+		&:before,
+		&:after
+			background-color: $red
+	&:active
+		&:before,
+		&:after
+			+rotate(0)
+			background-color: #F71B10 
+	&:before
+		content: ""
+		position: absolute
+		bottom: 3px
+		right: 4px
+		background: $title
+		height: 2px
+		width: 12px
+		+rotate(-30)
+		+transition(background-color .2s, transform .3s)
+	&:after
+		content: ""
+		position: absolute
+		bottom: 3px
+		left: 4px
+		background: $title
+		height: 2px
+		width: 12px
+		+rotate(30)
+		+transition(background-color .2s, transform .3s)
+
+.btn-calendar
+	display: none
+	position: absolute
+	padding: 13px 15px
+	border-radius: 0 0 10px 0
+	top: 20px
+	left: 0
+	right: auto
+	background-color: $red
+	z-index: 5
+	+transition(left .4s, background-color .4s)
+	+r(992)
+		display: block
+	&:before
+		content: ""
+		position: absolute
+		bottom: 14px
+		right: 0
+		background-color: transparent
+		height: 2px
+		width: 12px
+		+rotate(-60)
+		+transition(background-color .4s)
+	&:after
+		content: ""
+		position: absolute
+		top: 14px
+		right: 0
+		left: auto
+		background-color: transparent
+		height: 2px
+		width: 12px
+		+rotate(60)
+		+transition(background-color .4s)
+	&:hover
+		i
+			opacity: .6
+	&.is-active
+		margin-left: -28px
+		left: 100%
+		height: 40px
+		width: 30px
+		background-color: $bg 
+		border-radius: 0 0 0 10px
+		z-index: 7 
+		i
+			opacity: 0
+		&:before
+			content: ""
+			position: absolute
+			bottom: 14px
+			right: 0
+			background: $title
+			height: 2px
+			width: 12px
+			+rotate(-60)
+			+transition(background-color .2s, transform .3s)
+		&:after
+			content: ""
+			position: absolute
+			top: 14px
+			right: 0
+			left: auto
+			background: $title
+			height: 2px
+			width: 12px
+			+rotate(60)
+			+transition(background-color .2s, transform .3s)
+		&:active
+			&:before
+				+rotate(-90)
+				background-color: $red
+			&:after
+				+rotate(90)
+				background-color: $red
+
+.btn-wrap
+	position: relative
+.slick-slider
+	.user-pic
+		display: inline-block !important
+.slider-items
+	margin-right: -35px
+	+r(1170)
+		margin-right: -25px
+	+r(992)
+		margin-right: 0
+	.slick-list
+		padding: 5px 
+		+r(750)
+			height: auto !important
+.slider-reviews
+	margin: 0 -35px 45px 0
+	.slick-list
+		padding: 5px 0
+	+r(768)
+		margin-right: 0
+.item-wrap
+	display: none
+	padding: 30px 20px 0
+	background: #DEDEDE 
+	margin-bottom: 15px
+	margin-top: -15px
+	+r(1170)
+		padding: 15px 15px 0
+	+r(750)
+		position: fixed
+		top: 0
+		bottom: 0
+		right: 0
+		margin: 0
+		padding-bottom: 15px
+		display: block
+		z-index: 15
+		+transform(translateX(275px))
+		width: 275px
+		overflow-y: auto
+		+tr(transform .5s)
+		background: #eee
+	.item
+		margin-bottom: 30px
+		+r(1200)
+			width: 291px
+		+r(992)
+			width: 220px
+		+r(750)
+			width: 100%
+			margin-bottom: 15px
+	.title
+		margin: 0 0 16px
+	&.is-active
+		display: block
+		+r(750)
+			+transform(translateX(0))
+.grid-sizer
+	width: 260px
+	+r(1200)
+		width: 290px
+	+r(992)
+		width: 220px
+	+r(750)
+		width: 240px
+.item
+	width: 260px
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.05)
+	border-radius: 10px 0 10px 0
+	+r(1200)
+		width: 294px
+	+r(992)
+		width: 220px
+		margin: 0 auto 
+	+r(750)
+		width: 240px
+	&_event
+		.item__head-info,
+		.item__info,
+		.user,
+		.item__name,
+		.item__foot
+			+r(992)
+				display: none
+	&.is-active
+		z-index: 6
+		.item__head-info,
+		.item__info,
+		.user,
+		.item__name,
+		.item__foot
+			+r(992)
+				display: block
+		.item__body
+			border-radius: 0 
+	&.is-visible-add
+		z-index: 6
+		.item__foot
+			border-radius: 0 
+		.item__add
+			opacity: 1
+			position: relative
+			visibility: visible
+	&__head
+		position: relative
+		height: 160px
+		width: auto
+		border-radius: 10px 0 0 0
+		width: 100%
+		overflow: hidden
+		color: #FFF
+		background-size: cover
+		+med
+		&:after
+			content: ""
+			position: absolute
+			right: 0
+			left: 0
+			bottom: 0
+			top: 0
+			box-shadow: 0 0 0 #000
+			+g(rgba(#000, 0), rgba(#000,.5))
+		&:before
+			content: ""
+			position: absolute
+			right: 0
+			left: 0
+			bottom: 0
+			top: 0
+			z-index: 1
+			+transition(background-color .3s)
+		&:hover
+			&:before
+				background-color: rgba(#410e0b, .5)
+		.badge-date
+			position: absolute
+			top: 0
+			right: 0
+	&__head-info
+		position: absolute
+		bottom: 12px
+		z-index: 5
+		i
+			vertical-align: middle
+			display: inline-block
+			margin-right: 5px
+		span
+			vertical-align: middle 
+	&__head-info_left
+		left: 16px		
+	&__head-info_right		
+		right: 16px
+	&__body
+		background: #fff
+		padding: 10px 15px 15px
+		+r(992)
+			border-radius: 0 0 10px 0
+	&__name
+		color: $text
+		margin-top: 10px
+		+bold
+		font-size: 12px
+		+clr
+		i
+			float: left
+			margin-right: 5px 
+		span
+			display: block
+			overflow: hidden
+	&__info
+		margin: 12px 0 8px
+		.icon-more
+			margin-left: 5px 
+	&__foot
+		background: $red
+		border-radius: 0 0 10px 0
+		padding: 10px 45px 10px 15px
+		position: relative
+		+clr
+		.price
+			float: left
+		.sale
+			float: right
+	&__add
+		opacity: 0
+		visibility: hidden
+		position: absolute
+		background: #FFF
+		border-radius: 0 0 10px 0
+		padding: 13px 15px 15px 
+		+reg
+		font-size: 12px
+		color: $text
+		+tr(opacity .3s)
+	&_corner
+		.item__body
+			border-radius: 10px 0 10px 0
+	&__date
+		color: $text
+		margin-top: 10px
+		+bold
+		font-size: 12px
+		i
+			margin-right: 5px
+		i,
+		span
+			vertical-align: middle
+		 
+	.title
+		+transition(text-decoration .2s)
+		&:hover
+			text-decoration: underline 
+.badge-date
+	padding: 5px 12px 13px
+	background: $red
+	color: #FFF
+	z-index: 5
+	+med
+	font-size: 10px
+	border-radius: 0 0 0 10px
+	text-transform: uppercase 
+	&__date
+		font-size: 24px
+		+exo
+		+bold
+.user
+	display: inline-block
+	.user-pic
+		vertical-align: middle
+		margin-right: 5px
+	&:hover
+		span
+			text-decoration: underline
+.user-name
+	font-size: 12px
+	color: $title
+	+bold
+	vertical-align: middle 
+.user-pic
+	display: inline-block
+	height: 30px
+	width: 30px
+	border-radius: 10px 0
+	overflow: hidden
+	img
+		width: 100%
+		height: auto
+.price
+	color: #FFF
+	+exo
+	+semibold
+.rubl
+	+rubl
+	font-style: normal
+	font-weight: normal
+.sale
+	&__link
+		display: inline-block
+		i
+			margin-right: 5px
+		span
+			+med
+			color: #FFF
+			text-decoration: underline
+		i,
+		span
+			vertical-align: middle
+			+transition(opacity .3s)
+			
+		&:hover
+			i,
+			span
+				opacity: .7
+			span
+				text-decoration: none
+		&:active
+			i,
+			span
+				opacity: .5
+.calendar
+	position: relative
+	z-index: 5
+	text-align: center
+	font-size: 0
+	.arr-left
+		z-index: 50
+		left: -14px		
+	.arr-right
+		right: -14px
+		z-index: 50
+	+r(992)
+		display: none
+	.tooltip
+		display: none
+	&_mob
+		display: none	
+		+transform(translateX(-115%))
+		color: #FFF
+		background: $red
+		position: absolute
+		top: 5px
+		left: 0
+		right: 0
+		margin-right: 15px
+		+transition(transform .5s)
+		.calendar__wrap
+			&:after
+				content: ""
+				position: absolute
+				background: rgba(#fff, .5)
+				width: 1px
+				top: 5%
+				bottom: 5%
+				right: -5px	
+				+r(750)
+					display: none
+		+r(992)
+			display: block
+		&.is-active
+			+transform(translateX(0))
+		.slick-slider
+			margin-left: -5px
+	&__wrap
+		position: relative 
+		+r(992)
+			padding: 0 5px
+		+r(750)
+			padding: 0
+			width: 300px
+			margin: 0 auto 
+		.wrapper
+			+r(750)
+				overflow: visible
+	&__year
+		display: none
+		padding: 10px 0 12px 
+		font-size: 12px
+		+exo
+		+semibold
+		+r(992)
+			display: block
+			padding-left: 15px 	
+	&__month	
+		margin-bottom: 22px
+		p
+			+exo
+			+semibold
+			font-size: 14px
+			margin-top: 9px
+			color: $text 
+		.title
+			position: relative
+			font-size: 18px	
+			display: block
+		+r(992)
+			display: none
+	&__month-small
+		display: none
+		margin-bottom: 21px
+		.title
+			font-size: 16px
+		+r(992)
+			display: block
+	ul
+		font-size: 0
+	li
+		font-size: 12px
+		display: inline-block
+		vertical-align: top
+		width: 29px
+		margin: 0 4px 
+		+exo
+		+semibold
+		color: $text
+		+r(992)
+			color: #FFF 
+			width: 11%
+			margin: 0 1.5% 
+	&__days
+		text-transform: uppercase
+		margin-bottom: 18px
+		&.is-not-first
+			+r(480)
+				display: none
+	&__numbers
+		position: relative
+		li
+			position: relative
+			margin-bottom: 20px
+			.badge
+				padding: 3px 0 4px
+				display: block
+				font-size: 12px
+				+transition(opacity .3s, background-color .3s) 
+				&:hover
+					opacity: .7
+				&:active
+					opacity: 1
+					background-color: $red-action
+				+r(992)
+					background: #FFF 
+					color: $title 
+			&.is-inactive
+				opacity: 0
+			&.is-group
+				background: #FFF
+				padding: 2px
+				&:before
+					content: ""
+					position: absolute
+					background: #fff
+					width: 8px
+					top: 0
+					left: -8px
+					bottom: 0
+					+r(992)
+						background: rgba(#fff, .3) 
+						left: -27%
+						width: 27%
+				+r(992)
+					background: rgba(#fff, .3) 
+			&.is-group-first
+				border-radius: 10px 0 0 0
+				padding: 4px
+				position: relative
+				&:before
+					display: none
+			&.is-group-last
+				border-radius: 0 0 10px 0
+			&.with-badge
+				padding: 0
+				position: relative
+						
+.tooltip
+	position: absolute
+	z-index: 15
+	background: #FFF
+	padding: 10px 17px
+	border-radius: 0 0 10px 0
+	opacity: 0
+	visibility: hidden
+	font-size: 12px
+	color: $text
+	width: 265px
+	text-align: left
+	+bold
+	box-shadow: 0 0 20px rgba(0,0,0,.1)
+	+transition(opacity .3s)
+	&.is-visible
+		opacity: 1
+		visibility: visible
+		+r(750)
+			width: 300px
+.info-box
+	margin-top: 5px
+	+r(992)
+		display: none
+	&__head
+		width: 100%
+		background: $red
+		border-radius: 10px 0 0 0
+		padding: 10px 15px
+		.title
+			color: #FFF 
+	&__info
+		padding: 14px 15px
+		background: #FFF
+		border-radius: 0 0 10px 0 
+		a
+			+bold
+			font-size: 12px
+			color: $title
+			+transition(color .3s)
+			&:hover
+				text-decoration: underline
+			&:active
+				text-decoration: none
+				color: $text 

@@ -1,0 +1,268 @@
+.icon-study
+	+svg(study, 22, 20)
+.icon-job
+	+svg(job,22,20)
+.icon-test
+	+svg(test,22,20)
+.icon-settings
+	+svg(settings,22, 20)
+.icon-study-black
+	+svg(study-black, 22, 20)
+.icon-job-black
+	+svg(job-black,22,20)
+.icon-test-black
+	+svg(test-black,22,20)
+.icon-settings-black
+	+svg(settings-black,22, 20)
+.icon-cart
+	+svg(cart,20,16)
+.icon-alert
+	+svg(alert,15,16)
+.icon-message
+	+svg(message,18,15)
+.icon-exit
+	+svg(exit,10,15)
+.icon-facebook
+	width: 9px
+	height: 16px
+	&:before
+		+svg(facebook-hover,9,16)
+	&:after
+		+svg(facebook,9,16)
+.icon-twitter
+	width: 20px
+	height: 16px
+	&:before
+		+svg(twitter-hover,20,16)
+	&:after
+		+svg(twitter,20,16)
+.icon-youtube
+	width: 23px
+	height: 16px
+	&:before
+		+svg(youtube-hover,23,16)
+	&:after
+		+svg(youtube,23,16)
+.icon-vk
+	width: 25px
+	height: 16px
+	&:before
+		+svg(vk-hover,25,16)
+	&:after
+		+svg(vk,25,16)
+.icon-insta
+	width: 17px
+	height: 17px
+	&:before
+		+svg(insta-hover,17,17)
+	&:after
+		+svg(insta,17,17)
+.icon-soc
+	position: relative
+	overflow: hidden
+	display: inline-block
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		left: 0
+		+tr(top .3s)
+	&:before
+		top: 100%
+	&:after
+		top: 0
+	
+.icon-plus
+	position: relative
+	+svg(plus,20,20)
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0 
+		opacity: 0
+		+tr(opacity .3s)
+	&:before
+		+svg(plus-hover,20,20)
+	&:after
+		+svg(plus-action,20,20)
+
+.icon-clock
+	+svg(clock,18,18)
+.icon-pencil
+	+svg(pencil,19,19)
+.icon-category
+	+svg(category, 18,20)
+.icon-star
+	+svg(star,18,18)
+.icon-calendar
+	+svg(calendar,18,14)
+.icon-calendar-white
+	+svg(calendar-white,18,14)
+.icon-more
+	+svg(more,9,10)
+.arr-left
+	position: absolute
+	top: -2px
+	left: -36px
+	width: 36px
+	height: 36px
+	background: none
+	+r(992)
+		top: -5px
+	+r(750)
+		top: -7px
+	&:before,
+	&:after
+		content: "" 
+		position: absolute
+		left: 50%
+		top: 50%
+		margin: -9px 0 0 -4px 
+		+tr(opacity .3s)
+	&:before
+		+svg(arr-left,8,18)
+	&:after
+		opacity: 0
+		+svg(arr-left-hover,8,18)
+	&.is-inactive
+		opacity: .5
+		pointer-events: none
+	&:hover
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
+	&:active
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
+			+svg(arr-left-action,8,18)
+.arr-right
+	position: absolute
+	top: -2px
+	right: -36px
+	width: 36px
+	height: 36px
+	background: none
+	+r(992)
+		top: -5px
+	+r(750)
+		top: -7px
+	&:before,
+	&:after
+		content: "" 
+		position: absolute
+		left: 50%
+		top: 50%
+		margin: -9px 0 0 -4px 
+		+tr(opacity .3s)
+	&:before
+		+svg(arr-right,8,18)
+	&:after
+		opacity: 0
+		+svg(arr-right-hover,8,18)
+	&.is-inactive
+		opacity: .5
+		pointer-events: none
+	&:hover
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
+	&:active
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
+			+svg(arr-right-action,8,18)
+
+.arr-bottom
+	width: 100px
+	height: 40px
+	+vertical
+	background: none
+	&:hover
+		i
+			&:before,
+			&:after
+				background-color: #c7baba
+	&:active
+		i
+			&:before,
+			&:after
+				background-color: #99817d
+	i
+		display: inline-block
+		position: relative
+		z-index: 5
+		height: 8px
+		width: 20px
+		background: none 
+		&:before
+			content: ""
+			position: absolute
+			bottom: 0
+			right: 0
+			background: #fff
+			height: 2px
+			width: 12px
+			+rotate(-30)
+			+transition(background-color .2s)
+		&:after
+			content: ""
+			position: absolute
+			bottom: 0
+			left: 0
+			background: #fff
+			height: 2px
+			width: 12px
+			+rotate(30)
+			+transition(background-color .2s)
+.arr-top
+	width: 100px
+	height: 40px
+	+vertical
+	background: none
+	&:hover
+		i
+			&:before,
+			&:after
+				background-color: #c7baba
+	&:active
+		i
+			&:before,
+			&:after
+				background-color: #99817d
+	i
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		z-index: 5
+		height: 8px
+		width: 20px
+		background: none 
+		
+		
+		&:before
+			content: ""
+			position: absolute
+			bottom: 0
+			right: 0
+			background: #fff
+			height: 2px
+			width: 12px
+			+rotate(30)
+			+transition(background-color .2s)
+		&:after
+			content: ""
+			position: absolute
+			bottom: 0
+			left: 0
+			background: #fff
+			height: 2px
+			width: 12px
+			+rotate(-30)
+			+transition(background-color .2s)
