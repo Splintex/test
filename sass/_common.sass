@@ -83,7 +83,11 @@ body
 	overflow: hidden
 	clear: both
 .wrap-marg
-	margin: 24px 0 24px
+	margin: 38px 0 19px
+	&_minus
+		margin: 28px 0 19px
+	&_plus
+		margin: 38px 0 24px 
 .header
 	position: fixed
 	top: 0
@@ -233,7 +237,7 @@ body
 		+r(768)
 			+clr 
 		.toolbar__item			
-			margin-left: 20px
+			margin-left: 18px
 			margin-right: 0
 			&:hover
 				padding-right: 0
@@ -251,9 +255,11 @@ body
 	&__badge
 		display: inline-block
 		margin-left: 5px
+		vertical-align: middle
+		margin-top: -6px
 
 .badge
-	padding: 5px
+	padding: 3px 7px
 	background-color: $red
 	border-radius: 10px 0
 	color: #fff
@@ -605,6 +611,11 @@ body
 	&__icon
 		display: inline-block
 		margin-right: 40px
+		+r(750)
+			margin-right: 37px
+		&:last-child
+			+r(750)
+				margin-right: 0
 		&:hover
 			.icon-soc
 				&:before
