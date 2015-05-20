@@ -59,7 +59,7 @@ body.is-visible-items { overflow: hidden; }
 .header__top:after { content: " "; display: table; clear: both; }
 .header__main { padding: 10px 0; position: relative; background: #fff; *zoom: 1; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .header__main:after { content: " "; display: table; clear: both; }
-.header__logo-hashtag { display: block; line-height: 40px; height: 40px; color: #fff; text-transform: uppercase; font-family: "Exo 2", Arial, sans-serif; letter-spacing: 1px; font-weight: 300; border-right: 1px solid #363636; }
+.header__logo-hashtag { display: block; line-height: 40px; height: 40px; color: #fff; text-transform: uppercase; font-family: "Exo 2", Arial, sans-serif; letter-spacing: 1px; font-weight: 400; border-right: 1px solid #363636; }
 .header__logo { position: absolute; top: 0; bottom: 0; background: url("../img/svg/logo.svg") no-repeat 0 0; -moz-background-size: 102px 50px; -o-background-size: 102px 50px; -webkit-background-size: 102px 50px; background-size: 102px 50px; width: 102px; height: 50px; display: inline-block; }
 @media only screen and (max-width: 750px) { .header__logo { background: url("../img/svg/logo.svg") no-repeat 0 0; -moz-background-size: 60px 30px; -o-background-size: 60px 30px; -webkit-background-size: 60px 30px; background-size: 60px 30px; width: 60px; height: 30px; display: inline-block; } }
 @media only screen and (max-width: 992px) { .header .btn-reg { display: none; } }
