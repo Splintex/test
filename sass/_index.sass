@@ -2,7 +2,7 @@
 	position: relative
 	margin-bottom: 15px
 	.btn-toggle
-		+r(750)
+		+r(768)
 			right: 0
 			top: 50%
 			margin-top: -20px
@@ -34,6 +34,11 @@
 				width: 12px
 				+rotate(60)
 				+transition(background-color .2s, transform .3s)
+			&:hover
+				&:before
+					bottom: 14px
+				&:after
+					top: 14px
 			&:active
 				&:before
 					+rotate(-90)
@@ -42,7 +47,7 @@
 					+rotate(90)
 					background-color: #F71B10 
 		&.is-active
-			+r(750)
+			+r(768)
 				+transform(translateX(-275px))
 				&:before
 					bottom: 14px
@@ -54,12 +59,30 @@
 						+rotate(-90)
 					&:after
 						+rotate(90)
+			&:hover
+				+r(768)
+					+transform(translateX(-275px))
+					&:before
+						bottom: 14px
+						+rotate(-120)
+					&:after
+						+rotate(120)
+					&:active
+						&:before
+							+rotate(-90)
+						&:after
+							+rotate(90)
 .banner
 	position: relative
 	z-index: 1
 	display: block
 	+cover
 	cursor: pointer
+	height: 170px
+	+r(992)
+		height: 165px
+	+r(768)
+		height: 120px
 	&:before
 		content: ""
 		position: absolute
@@ -73,17 +96,27 @@
 		&:before
 			background-color: rgba(#410e0b, .7)
 	&__parent
-		position: relative
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
 		z-index: 5
-		height: 170px
 		+vertical
-		+tr(height .3s)
-		+r(992)
-			height: 165px
+		overflow: hidden
 		+r(768)
-			height: 120px
 			padding: 0 35px 
-			.strip
+			
+		> .title_big
+			position: absolute
+			left: 0
+			top: 38px
+			right: 0
+			text-align: center
+			+r(768)
+				top: 24px
+		.strip
+			+r(768)
 				display: none
 	&__vertical
 		display: inline-block
@@ -107,45 +140,46 @@
 		vertical-align: middle
 	&_big
 		margin-bottom: 5px
+		height: 185px
+		+r(992)
+			height: 180px
+		+r(768)
+			height: 145px
 		&:before
-			content: ""
-			position: absolute
-			top: 0
-			right: 0
-			left: 0
-			bottom: 0
 			background-color: rgba(#410e0b, .7)  
-		.banner__parent
-			height: 185px
-			+r(992)
-				height: 180px
-			+r(768)
-				height: 155px
-				.strip
-					display: block
+		.col-lg-12
+			position: static
 		&.is-active
 			min-height: 320px
-
+			background-position: 0 0 
+		.banner__parent
+			.strip
+				margin: 11px auto 0 
+				+r(992)
+					margin: 11px auto -2px
+				+r(768)
+					margin: 11px auto 4px 
+				+r(768)
+					display: block
 	&_marg
 		margin-bottom: 15px 
-		+r(750)
+		+r(768)
 			margin-bottom: 0
 	&.is-active
-		.banner__parent
-			height: calc(100vh - 110px)
-			+r(750)
-				height: calc(100vh - 90px)
 		.fact
-			display: block
+			opacity: 1
+			visibility: visible
 	&.is-covered
 		&:before
 			background-color: rgba(#410e0b, .7)
 			
 .fact
-	display: none
+	opacity: 0
+	visibility: hidden
 	margin-top: 80px
 	color: #FFF
 	position: relative
+	+tr(opacity .5s linear .2s)
 	+r(768)
 		margin-top: 55px
 	.arr-top,
@@ -189,13 +223,16 @@
 	+semibold
 	+r(992)
 		font-size: 18px 
-	+r(750)
+	+r(768)
 		font-size: 16px
+	span
+		+r(768)
+			display: none
 	&_white
 		color: #fff 
 	&_big
 		font-size: 36px
-		+r(750)
+		+r(768)
 			font-size: 20px
 	&_slide
 		position: relative
@@ -214,15 +251,16 @@
 				color: $red-action 
 	.arr-right,
 	.arr-left
-		+r(750)
+		+r(768)
 			display: none
+	
 .strip
+	display: block
 	width: 60px
 	height: 2px
-	margin: 20px auto
+	margin: 11px auto
 	background: #FFF 
-	+r(992)
-		margin: 10px auto 
+	
 .btn-toggle
 	display: inline-block
 	position: absolute
@@ -290,103 +328,109 @@
 	right: auto
 	background-color: $red
 	z-index: 5
-	+transition(left .4s, background-color .4s)
-	+r(992)
+	+transition(left, background-color, margin-left, .5s)
+	+r(1200)
 		display: block
-	&:before
-		content: ""
-		position: absolute
-		bottom: 14px
-		right: 0
-		background-color: transparent
-		height: 2px
-		width: 12px
-		+rotate(-60)
-		+transition(background-color .4s)
-	&:after
-		content: ""
-		position: absolute
-		top: 14px
-		right: 0
-		left: auto
-		background-color: transparent
-		height: 2px
-		width: 12px
-		+rotate(60)
-		+transition(background-color .4s)
 	&:hover
 		i
 			opacity: .6
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		top: 50%
+		left: 26px
+		margin: -1px 0 0 -1px
+		background: $title
+		height: 2px
+		width: 12px
+		display: none
+		border-radius: 2px 
+		+transition(background, transform, left, .2s)
+	&:before
+		+transform(rotate(-60deg) translate3d(0,-9px,0))
+	&:after
+		+transform(rotate(60deg) translate3d(0,9px,0))
+	&:hover
+		&:before,
+		&:after
+			background: $red
+			left: 20px
+	&:active
+		&:before
+			+transform(rotate(-90deg) translate3d(4px,-9px,0))
+		&:after
+			+transform(rotate(90deg) translate3d(4px,9px,0))
 	&.is-active
 		margin-left: -28px
 		left: 100%
 		height: 40px
 		width: 30px
-		background-color: $bg 
+		display: block
 		border-radius: 0 0 0 10px
 		z-index: 7 
+		background: #fff 
 		i
 			opacity: 0
-		&:before
-			content: ""
-			position: absolute
-			bottom: 14px
-			right: 0
-			background: $title
-			height: 2px
-			width: 12px
-			+rotate(-60)
-			+transition(background-color .2s, transform .3s)
+		&:before,
 		&:after
-			content: ""
-			position: absolute
-			top: 14px
-			right: 0
-			left: auto
-			background: $title
-			height: 2px
-			width: 12px
-			+rotate(60)
-			+transition(background-color .2s, transform .3s)
-		&:active
-			&:before
-				+rotate(-90)
-				background-color: $red
-			&:after
-				+rotate(90)
-				background-color: $red
+			display: block
+	i
+		+tr(opacity .3s)
 
 .btn-wrap
 	position: relative
+	z-index: 9
 .slick-slider
 	.user-pic
 		display: inline-block !important
 .slider-items
-	margin-right: -35px
-	+r(1170)
-		margin-right: -25px
+	margin: 0 -15px
+	+r(768)
+		margin: 0
+	.slick-list
+		padding: 5px 
+		+r(768)
+			height: auto !important
+	.item
+		margin: 0 auto 
+.slider-reviews
+	margin: 0 -35px 45px 0
 	+r(992)
 		margin-right: 0
 	.slick-list
-		padding: 5px 
-		+r(750)
-			height: auto !important
-.slider-reviews
-	margin: 0 -35px 45px 0
-	.slick-list
 		padding: 5px 0
-	+r(768)
-		margin-right: 0
+			
 .item-wrap
 	display: none
+	position: relative
 	padding: 30px 20px 0
 	background: #DEDEDE 
 	margin-bottom: 15px
 	margin-top: -15px
-	+r(1170)
+	&.is-visible
+		+r(768)
+			+transform(translateX(0))
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		bottom: 0
+		background: #DEDEDE
+		width: 1500px
+		+r(992)
+			display: none
+	&:before
+		left: -1500px
+	&:after
+		right: -1500px
+	&:before
+
+	+r(1200)
 		padding: 15px 15px 0
-	+r(750)
-		position: fixed
+	+r(768)
+		position: fixed !important
 		top: 0
 		bottom: 0
 		right: 0
@@ -405,22 +449,23 @@
 			width: 291px
 		+r(992)
 			width: 220px
-		+r(750)
+		+r(768)
 			width: 100%
 			margin-bottom: 15px
-	> .title
-		margin: 0 0 16px
-	&.is-active
-		display: block
-		+r(750)
-			+transform(translateX(0))
+	.l-center
+		> .title
+			margin: 0 0 16px
+		
+.item-wrap__masonry
+	margin: 0 auto 
+	overflow: visible
 .grid-sizer
 	width: 260px
 	+r(1200)
 		width: 290px
 	+r(992)
 		width: 220px
-	+r(750)
+	+r(768)
 		width: 240px
 .item
 	width: 260px
@@ -431,8 +476,7 @@
 	+r(992)
 		width: 220px
 		margin: 0 auto 
-	+r(750)
-		width: 240px
+	
 	&_event
 		.item__head-info,
 		.item__info,
@@ -456,10 +500,6 @@
 		z-index: 6
 		.item__foot
 			border-radius: 0 
-		.item__add
-			opacity: 1
-			position: relative
-			visibility: visible
 	&__head
 		position: relative
 		height: 160px
@@ -510,6 +550,8 @@
 	&__head-info_right		
 		right: 16px
 	&__body
+		position: relative
+		z-index: 2
 		background: #fff
 		padding: 10px 15px 15px
 		+r(992)
@@ -531,6 +573,8 @@
 		.icon-more
 			margin-left: 5px 
 	&__foot
+		position: relative
+		z-index: 2
 		background: $red
 		border-radius: 0 0 10px 0
 		padding: 10px 45px 10px 15px
@@ -541,16 +585,14 @@
 		.sale
 			float: right
 	&__add
-		opacity: 0
-		visibility: hidden
-		position: absolute
+		position: relative
+		display: none
 		background: #FFF
 		border-radius: 0 0 10px 0
 		padding: 13px 15px 15px 
 		+reg
 		font-size: 12px
 		color: $text
-		+tr(opacity .5s)
 	&_corner
 		.item__body
 			border-radius: 10px 0 10px 0
@@ -617,6 +659,7 @@
 	overflow: hidden
 	img
 		width: 100%
+		display: block
 		height: auto
 .price
 	color: #FFF
@@ -629,12 +672,13 @@
 .sale
 	&__link
 		display: inline-block
-		line-height: 1
 		i
 			margin-right: 5px
 		span
 			+med
+			display: inline-block
 			color: #FFF
+			line-height: 1
 			border-bottom: 2px solid #fff
 		i,
 		span
@@ -658,11 +702,13 @@
 	font-size: 0
 	.arr-left
 		z-index: 50
-		left: -14px		
+		left: -14px
+		top: -2px		
 	.arr-right
 		right: -14px
 		z-index: 50
-	+r(992)
+		top: -2px
+	+r(1200)
 		display: none
 	.tooltip
 		display: none
@@ -672,10 +718,9 @@
 		color: #FFF
 		background: $red
 		position: absolute
-		top: 5px
+		top: -3px
 		left: 0
 		right: 0
-		margin-right: 15px
 		+transition(transform .5s)
 		.calendar__wrap
 			&:after
@@ -686,9 +731,9 @@
 				top: 5%
 				bottom: 5%
 				right: -5px	
-				+r(750)
+				+r(768)
 					display: none
-		+r(992)
+		+r(1200)
 			display: block
 		&.is-active
 			+transform(translateX(0))
@@ -696,14 +741,14 @@
 			margin-left: -5px
 	&__wrap
 		position: relative 
-		+r(992)
+		+r(1200)
 			padding: 0 5px
-		+r(750)
+		+r(768)
 			padding: 0
 			width: 300px
 			margin: 0 auto 
 		.wrapper
-			+r(750)
+			+r(768)
 				overflow: visible
 	&__year
 		display: none
@@ -711,9 +756,8 @@
 		font-size: 12px
 		+exo
 		+semibold
-		+r(992)
+		+r(1200)
 			display: block
-			padding-left: 15px 	
 	&__month	
 		margin-bottom: 22px
 		p
@@ -726,14 +770,14 @@
 			position: relative
 			font-size: 18px	
 			display: block
-		+r(992)
+		+r(1200)
 			display: none
 	&__month-small
 		display: none
 		margin-bottom: 21px
 		.title
 			font-size: 16px
-		+r(992)
+		+r(1200)
 			display: block
 	ul
 		font-size: 0
@@ -746,7 +790,7 @@
 		+exo
 		+semibold
 		color: $text
-		+r(992)
+		+r(1200)
 			color: #FFF 
 			width: 11%
 			margin: 0 1.5% 
@@ -771,7 +815,7 @@
 				&:active
 					opacity: 1
 					background-color: $red-action
-				+r(992)
+				+r(1200)
 					background: #FFF 
 					color: $title 
 			&.is-inactive
@@ -787,11 +831,11 @@
 					top: 0
 					left: -8px
 					bottom: 0
-					+r(992)
+					+r(1200)
 						background: rgba(#fff, .3) 
 						left: -27%
 						width: 27%
-				+r(992)
+				+r(1200)
 					background: rgba(#fff, .3) 
 			&.is-group-first
 				border-radius: 10px 0 0 0
@@ -825,11 +869,11 @@
 	&.is-visible
 		opacity: 1
 		visibility: visible
-		+r(750)
+		+r(768)
 			width: 300px
 .info-box
 	margin-top: 5px
-	+r(992)
+	+r(1200)
 		display: none
 	&__head
 		width: 100%

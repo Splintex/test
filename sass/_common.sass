@@ -48,7 +48,6 @@ a
 	text-decoration: none
 	&:hover
 		text-decoration: none
-
 body
 	font-size: 14px 
 	line-height: 1.3
@@ -62,14 +61,25 @@ body
 .out
 	padding-top: 110px
 	overflow: hidden 
-	+r(750)
+	+r(768)
 		padding-top: 90px
 	
-.container
+.l-center
+	margin: 0 auto 
 	max-width: 1170px
 .row_no-pad
-	.col-sm-12
+	.col-lg-12,
+	.col-md-12,
+	.col-sm-12,
+	.col-xs-12
 		padding: 0
+.row_no-pad-sm
+	.col-lg-12,
+	.col-md-12,
+	.col-sm-12,
+	.col-xs-12
+		+r(768)
+			padding: 0
 .row_no-pad-left
 	.col-sm-12,
 	.col-xs-12
@@ -83,11 +93,27 @@ body
 	overflow: hidden
 	clear: both
 .wrap-marg
-	margin: 38px 0 19px
+	margin: 38px 0 22px
+	+r(1200)
+		margin: 40px 0 24px
+	+r(992)
+		margin: 20px 0  14px
+	+r(768)
+		margin-bottom: 12px 
 	&_minus
 		margin: 28px 0 19px
+		+r(1200)
+			margin: 31px 0 24px
+		+r(992)
+			margin: 11px 0 14px
+		+r(768)
+			margin: 9px 0 11px  
 	&_plus
-		margin: 38px 0 24px 
+		margin: 38px 0 24px
+		+r(1200)
+			margin: 40px 0 25px
+		+r(992)
+			margin: 20px 0 15px  
 .header
 	position: fixed
 	top: 0
@@ -100,6 +126,8 @@ body
 		+clr
 		background: $head-top
 		vertical-align: middle
+		+r(768)
+			height: 40px
 	&__main
 		padding: 10px 0
 		position: relative
@@ -120,7 +148,7 @@ body
 		top: 0
 		bottom: 0
 		+svg(logo,102, 50)
-		+r(750)
+		+r(768)
 			+svg(logo,60,30)
 	.btn-reg
 		+r(992)
@@ -173,8 +201,14 @@ body
 	line-height: 40px
 	height: 40px
 	&.is-left
+		margin: 0 auto 
+		width: 300px
+		text-align: left
+		white-space: nowrap
+		font-size: 0
 		+r(992)
 			text-align: left
+			width: auto
 		+r(768)
 			display: none
 	&.is-right
@@ -192,14 +226,14 @@ body
 		display: inline-block
 		vertical-align: middle
 		position: relative
-		+transition(padding-right .3s)
+		+transition(padding-right .4s)
 		&:first-child
 			+r(992)
 				margin-left: 0
 		.icon
 			vertical-align: middle
 			margin-top: -5px
-			+transition(opacity .2s)
+			+transition(opacity .4s)
 		&:hover
 			padding-right: 70px
 			+r(992)
@@ -212,7 +246,8 @@ body
 				background-color: $red-hover
 			.icon
 				opacity: .5
-
+			.toolbar__text
+				opacity: .5
 		&:active
 			.badge
 				background: $red
@@ -220,7 +255,8 @@ body
 				color: $icon-action
 			.icon
 				opacity: .3
-
+			.toolbar__text
+				opacity: .3
 	&__hover
 		position: absolute
 		text-transform: uppercase
@@ -231,7 +267,18 @@ body
 		+exo
 		+semibold
 		font-size: 12px
-		+transition(color .2s) 
+		+transition(color .4s) 
+	&__text
+		display: inline-block
+		vertical-align: middle
+		margin-right: 5px
+		text-transform: uppercase
+		color: #fff 
+		white-space: nowrap
+		+exo
+		+semibold
+		+transition(opacity .4s)
+		font-size: 12px
 	&_mod
 		text-align: right
 		+r(768)
@@ -248,16 +295,22 @@ body
 		display: inline-block
 		+r(768)
 			float: left
+			height: 40px
+			
 	&__right
 		display: inline-block
 		+r(768)
 			float: right
+			height: 40px
+		.icon
+			margin-top: 0 
 	&__badge
 		display: inline-block
 		margin-left: 5px
 		vertical-align: middle
 		margin-top: -6px
-
+	.user-pic
+		margin-top: -3px
 .badge
 	padding: 3px 7px
 	background-color: $red
@@ -373,7 +426,7 @@ body
 		margin-top: 10px
 		+transform(translateY(-100%))
 		+transition(transform .5s)
-		+r(750)
+		+r(768)
 			padding-top: 90px
 		&.is-active
 			+transform(translateY(0))
@@ -402,7 +455,7 @@ body
 	overflow-y: auto
 	overflow-x: hidden
 	background: $footer 
-	+r(750)
+	+r(768)
 		padding-top: 90px
 		width: 100%
 		left: 0
@@ -414,7 +467,7 @@ body
 		text-align: center
 		table-layout: fixed
 		width: 100%
-		+r(750)
+		+r(768)
 			display: table
 		a
 			display: table-cell
@@ -422,6 +475,10 @@ body
 			line-height: 50px
 			i
 				vertical-align: middle
+			&:hover
+				opacity: .7
+			&:active
+				opacity: .5 
 	&__in
 		overflow-y: auto
 		a
@@ -439,6 +496,8 @@ body
 				color: $red 
 			&.is-active
 				color: $red
+			&:active
+				color: $red-action 
 	&.is-active
 		+transform(translateY(0))
 .menu-overlay
@@ -463,7 +522,7 @@ body
 	+tr(color .2s) 
 	+r(992)
 		display: block
-	+r(750)
+	+r(768)
 		height: 30px
 		line-height: 30px
 	&:active
@@ -482,7 +541,7 @@ body
 	+tr(transform .5s)
 	+r(992)
 		display: block
-	+r(750)
+	+r(768)
 		height: 50px
 		line-height: 50px
 	&:before
@@ -502,7 +561,7 @@ body
 	overflow: hidden
 	+r(992)
 		padding-bottom: 68px
-	+r(750)
+	+r(768)
 		padding-bottom: 6px
 	.row
 		+r(992)
@@ -510,14 +569,14 @@ body
 		> div
 			+r(992)
 				position: static !important
-			+r(750)
+			+r(768)
 				+display-flex
 				+flex-direction(column)
 	&__logo
 		float: left
 		+svg(logo-footer,102,57)
 		margin-right: 15px
-		+r(750)
+		+r(768)
 			+svg(logo-footer,60,30)
 	&__info
 		overflow: hidden
@@ -527,7 +586,7 @@ body
 			font-size: 12px
 			color: $text
 			&:first-child
-				+r(750)
+				+r(768)
 					margin-top: 0
 	&__menu
 		+clr
@@ -537,14 +596,14 @@ body
 			top: 90px
 			left: 132px
 			margin-bottom: 0
-		+r(750)
+		+r(768)
 			position: static
 			padding-right: 70px
 			order: 2
 	&__menu-item
 		float: left
 		margin-left: 28px
-		+r(750)
+		+r(768)
 			margin: 0 37px 10px 0
 		&:first-child
 			margin-left: 0
@@ -566,7 +625,11 @@ body
 	&:active
 		border-color: transparent
 		color: $text 
-		 
+.tel-wrap
+	display: inline-block
+	+r(992)
+		display: block
+		margin-top: 6px
 
 .corner	
 	display: block
@@ -603,7 +666,7 @@ body
 		right: 0
 		top: 0
 		text-align: right
-	+r(750)
+	+r(768)
 		position: static
 		text-align: center
 		order: 1
@@ -611,10 +674,10 @@ body
 	&__icon
 		display: inline-block
 		margin-right: 40px
-		+r(750)
+		+r(768)
 			margin-right: 37px
 		&:last-child
-			+r(750)
+			+r(768)
 				margin-right: 0
 		&:hover
 			.icon-soc
@@ -622,13 +685,6 @@ body
 					top: 0
 				&:after
 					top: -100%
-		// &:active
-		// 	.icon-soc
-		// 		&:before,
-		// 		&:after
-		// 			+tr(none)
-		// 		&:before
-		// 			top: -100%
-		// 		&:after
-		// 			top: 0
-		
+		&:active
+			.icon-soc
+				opacity: 0.7

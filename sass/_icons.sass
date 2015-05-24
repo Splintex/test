@@ -22,6 +22,8 @@
 	+svg(message,18,15)
 .icon-exit
 	+svg(exit,10,15)
+.icon-sign-in
+	+svg(sign-in,14,18)
 .icon-facebook
 	width: 9px
 	height: 16px
@@ -29,10 +31,10 @@
 		+svg(facebook-hover,9,16)
 	&:after
 		+svg(facebook,9,16)
-	&:active
-		&:after,
-		&:before
-			+svg(facebook-action,9,16)
+	// &:active
+	// 	&:after,
+	// 	&:before
+	// 		+svg(facebook-action,9,16)
 .icon-twitter
 	width: 20px
 	height: 16px
@@ -40,10 +42,10 @@
 		+svg(twitter-hover,20,16)
 	&:after
 		+svg(twitter,20,16)
-	&:active
-		&:after,
-		&:before
-			+svg(twitter-action,20,16)
+	// &:active
+	// 	&:after,
+	// 	&:before
+	// 		+svg(twitter-action,20,16)
 .icon-youtube
 	width: 23px
 	height: 16px
@@ -51,10 +53,10 @@
 		+svg(youtube-hover,23,16)
 	&:after
 		+svg(youtube,23,16)
-	&:active
-		&:after,
-		&:before
-			+svg(youtube-action,23,16)
+	// &:active
+	// 	&:after,
+	// 	&:before
+	// 		+svg(youtube-action,23,16)
 .icon-vk
 	width: 25px
 	height: 16px
@@ -62,10 +64,10 @@
 		+svg(vk-hover,25,16)
 	&:after
 		+svg(vk,25,16)
-	&:active
-		&:after,
-		&:before
-			+svg(vk-action,25,16)
+	// &:active
+	// 	&:after,
+	// 	&:before
+	// 		+svg(vk-action,25,16)
 .icon-insta
 	width: 17px
 	height: 17px
@@ -73,10 +75,10 @@
 		+svg(insta-hover,17,17)
 	&:after
 		+svg(insta,17,17)
-	&:active
-		&:after,
-		&:before
-			+svg(insta-action,17,17)
+	// &:active
+	// 	&:after,
+	// 	&:before
+	// 		+svg(insta-action,17,17)
 .icon-soc
 	position: relative
 	overflow: hidden
@@ -128,8 +130,8 @@
 		+svg(more-action,9,10)
 .arr-left
 	position: absolute
-	top: -2px
-	left: -36px
+	top: 0
+	left: -34px
 	width: 36px
 	height: 36px
 	background: none
@@ -139,35 +141,38 @@
 		top: -7px
 	&:before,
 	&:after
-		content: "" 
+		content: ""
 		position: absolute
-		left: 50%
 		top: 50%
-		margin: -9px 0 0 -4px 
-		+tr(opacity .3s)
+		left: 20px
+		margin: -1px 0 0 -1px
+		background: $title
+		height: 2px
+		width: 12px
+		border-radius: 2px 
+		+transition(background, transform, left, .2s)
 	&:before
-		+svg(arr-left,8,18)
+		+transform(rotate(-60deg) translate3d(0,-9px,0))
 	&:after
-		opacity: 0
-		+svg(arr-left-hover,8,18)
-	&.is-inactive
-		opacity: .5
-		pointer-events: none
+		+transform(rotate(60deg) translate3d(0,9px,0))
 	&:hover
-		&:before
-			opacity: 0
+		&:before,
 		&:after
-			opacity: 1
+			background: $red
+			left: 15px
 	&:active
 		&:before
-			opacity: 0
+			+transform(rotate(-90deg) translate3d(4px,-9px,0))
 		&:after
-			opacity: 1
-			+svg(arr-left-action,8,18)
+			+transform(rotate(90deg) translate3d(4px,9px,0))
+	&.is-inactive,
+	&.slick-disabled
+		opacity: .5
+		pointer-events: none
 .arr-right
 	position: absolute
-	top: -2px
-	right: -36px
+	top: 0
+	right: -34px
 	width: 36px
 	height: 36px
 	background: none
@@ -177,31 +182,34 @@
 		top: -7px
 	&:before,
 	&:after
-		content: "" 
+		content: ""
 		position: absolute
-		left: 50%
 		top: 50%
-		margin: -9px 0 0 -4px 
-		+tr(opacity .3s)
+		left: 6px
+		margin: -1px 0 0 -1px
+		background: $title
+		height: 2px
+		width: 12px
+		border-radius: 2px 
+		+transition(background, transform, left, .2s)
 	&:before
-		+svg(arr-right,8,18)
+		+transform(rotate(60deg) translate3d(0,-9px,0))
 	&:after
-		opacity: 0
-		+svg(arr-right-hover,8,18)
-	&.is-inactive
-		opacity: .5
-		pointer-events: none
+		+transform(rotate(-60deg) translate3d(0,9px,0))
 	&:hover
-		&:before
-			opacity: 0
+		&:before,
 		&:after
-			opacity: 1
+			background: $red
+			left: 11px
 	&:active
 		&:before
-			opacity: 0
+			+transform(rotate(90deg) translate3d(-4px,-9px,0))
 		&:after
-			opacity: 1
-			+svg(arr-right-action,8,18)
+			+transform(rotate(-90deg) translate3d(-4px,9px,0))
+	&.is-inactive,
+	&.slick-disabled
+		opacity: .5
+		pointer-events: none
 
 .arr-bottom
 	width: 100px
