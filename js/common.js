@@ -51,6 +51,7 @@ $(document).ready(function() {
 	$('.js-slider-items').slick({
 		//centerMode: true,
 		//centerPadding: '15px',
+		infinite: false,
 		arrows: false,
 		slidesToShow: 3,
 		slidesToScroll: 3,
@@ -103,10 +104,24 @@ $(document).ready(function() {
 	  ]
 	});
 
-	 // On before slide change
-	 // $('.js-slider-items').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	 //   alert();
-	 // });
+	$('.js-slider-items').on('afterChange', function(event, slick, currentSlide, nextSlide){
+		$(".item").removeClass("is-active");
+		if ($('.js-slider-items').find(".slick-slide").last().hasClass("slick-active")) {
+			$(".js-slider-next-event").addClass("is-inactive");
+		}
+		else {
+			$(".js-slider-next-event").removeClass("is-inactive");
+		}
+
+		if ($('.js-slider-items').find(".slick-slide").first().hasClass("slick-active")) {
+			$(".js-slider-prev-event").addClass("is-inactive");
+		}
+		else {
+			$(".js-slider-prev-event").removeClass("is-inactive");
+		}
+
+	});
+
 	         
 	$('.js-slider-calendar').on('init', function(event, slick, direction){
 	  setTimeout(function(){
@@ -353,6 +368,29 @@ $(document).ready(function() {
 		
 	});
 
+	$(window).resize(function(){
+		if (verge.viewportW() > 768) { 
+			$(".js-masonry").masonry({
+				columnWidth: ".grid-sizer",
+				gutter: 30,
+				isFitWidth: true
+			});
+		}
+		if (verge.viewportW() <= 768) { 
+			$(".js-masonry").masonry('destroy');
+		}
+	});
+	if (verge.viewportW() > 768) { 
+		$(".js-masonry").masonry({
+			columnWidth: ".grid-sizer",
+			gutter: 30,
+			isFitWidth: true
+		});
+	}
+	if (verge.viewportW() <= 768) { 
+		$(".js-masonry").masonry('destroy');
+	}
+
 	$(".js-cover").on("click",function(){
 		var parent = $(this).parents(".banner-wrap");
 		if (verge.viewportW() > 768) {
@@ -482,6 +520,14 @@ $(document).ready(function() {
 		$(this).parents(".item").toggleClass("is-visible-add").find(".js-sale-add").slideToggle(300);
 		return false;
 	});
+
+	$(".js-soc-panel a").on("touchstart", function(){
+		$(".js-soc-panel a").removeClass("is-active");
+		$(this).addClass("is-active");
+	});
+	// $(".js-soc-panel a").on("touchend", function(){
+	// 	$(".js-soc-panel a").removeClass("is-active");
+	// });
 
 });
 
