@@ -581,13 +581,10 @@ body
 	&__info
 		overflow: hidden
 		p
-			margin-top: 6px
+			margin-bottom: 6px
 			+light
 			font-size: 12px
 			color: $text
-			&:first-child
-				+r(768)
-					margin-top: 0
 	&__menu
 		+clr
 		margin-bottom: 23px
@@ -599,7 +596,7 @@ body
 		+r(768)
 			position: static
 			padding-right: 70px
-			order: 2
+			+order(2)
 	&__menu-item
 		float: left
 		margin-left: 28px
@@ -627,9 +624,16 @@ body
 		color: $text 
 .tel-wrap
 	display: inline-block
+	padding-bottom: 1px
+	li
+		display: inline-block
+		vertical-align: middle
+		+r(768)
+			display: block
 	+r(992)
 		display: block
 		margin-top: 6px
+	
 
 .corner	
 	display: block
@@ -669,7 +673,7 @@ body
 	+r(768)
 		position: static
 		text-align: center
-		order: 1
+		+order(1)
 		margin: 15px 0 
 	&__icon
 		display: inline-block
@@ -679,7 +683,8 @@ body
 		&:last-child
 			+r(768)
 				margin-right: 0
-		&:hover
+		&:hover,
+		&:focus
 			.icon-soc
 				&:before
 					top: 0
@@ -688,3 +693,9 @@ body
 		&:active
 			.icon-soc
 				opacity: 0.7
+		.icon-soc
+			&:focus
+				&:before
+					top: 0
+				&:after
+					top: -100%
