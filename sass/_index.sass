@@ -386,6 +386,9 @@
 		display: inline-block !important
 .slider-items
 	margin: 0 -15px
+	visibility: hidden
+	&.is-ready
+		visibility: visible
 	+r(768)
 		margin: 0
 	.slick-list
@@ -396,6 +399,9 @@
 		margin: 0 auto 
 .slider-reviews
 	margin: 0 -35px 45px 0
+	visibility: hidden
+	&.is-ready
+		visibility: visible
 	+r(992)
 		margin-right: 0
 	.slick-list
@@ -848,7 +854,10 @@
 			&.with-badge
 				padding: 0
 				position: relative
-						
+.slider-calendar
+	visibility: hidden
+	&.is-ready
+		visibility: visible					
 .tooltip
 	position: absolute
 	left: 0

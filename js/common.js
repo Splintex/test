@@ -43,7 +43,11 @@ $(document).ready(function() {
 	});
 
 	
-
+	$('.js-slider-items').on('init', function(event, slick, direction){
+	  setTimeout(function(){
+	  	$('.js-slider-items').addClass("is-ready");
+	  },200)
+	});
 	$('.js-slider-items').slick({
 		//centerMode: true,
 		//centerPadding: '15px',
@@ -99,6 +103,16 @@ $(document).ready(function() {
 	  ]
 	});
 
+	 // On before slide change
+	 // $('.js-slider-items').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+	 //   alert();
+	 // });
+	         
+	$('.js-slider-calendar').on('init', function(event, slick, direction){
+	  setTimeout(function(){
+	  	$('.js-slider-calendar').addClass("is-ready");
+	  },200)
+	});
 	$('.js-slider-calendar').slick({
 		infinite: false,
 		slidesToShow: 1,
@@ -150,7 +164,11 @@ $(document).ready(function() {
   		console.log('edge was hit')
 	});
 	        
-
+	$('.js-slider-reviews').on('init', function(event, slick, direction){
+	  setTimeout(function(){
+	  	$('.js-slider-reviews').addClass("is-ready");
+	  },200)
+	});
 	$('.js-slider-reviews').slick({
 		infinite: true,
 		slidesToShow: 4,

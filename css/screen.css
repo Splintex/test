@@ -369,13 +369,15 @@ body.is-visible-items { overflow: hidden; }
 
 .slick-slider .user-pic { display: inline-block !important; }
 
-.slider-items { margin: 0 -15px; }
+.slider-items { margin: 0 -15px; visibility: hidden; }
+.slider-items.is-ready { visibility: visible; }
 @media only screen and (max-width: 768px) { .slider-items { margin: 0; } }
 .slider-items .slick-list { padding: 5px; }
 @media only screen and (max-width: 768px) { .slider-items .slick-list { height: auto !important; } }
 .slider-items .item { margin: 0 auto; }
 
-.slider-reviews { margin: 0 -35px 45px 0; }
+.slider-reviews { margin: 0 -35px 45px 0; visibility: hidden; }
+.slider-reviews.is-ready { visibility: visible; }
 @media only screen and (max-width: 992px) { .slider-reviews { margin-right: 0; } }
 .slider-reviews .slick-list { padding: 5px 0; }
 
@@ -511,6 +513,9 @@ body.is-visible-items { overflow: hidden; }
 .calendar__numbers li.is-group-first:before { display: none; }
 .calendar__numbers li.is-group-last { border-radius: 0 0 10px 0; }
 .calendar__numbers li.with-badge { padding: 0; position: relative; }
+
+.slider-calendar { visibility: hidden; }
+.slider-calendar.is-ready { visibility: visible; }
 
 .tooltip { position: absolute; left: 0; top: 0; z-index: 15; background: #FFF; padding: 10px 17px; border-radius: 0 0 10px 0; opacity: 0; visibility: hidden; font-size: 12px; color: #535353; width: 265px; text-align: left; font-weight: 700; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); -moz-transition: opacity 0.3s; -o-transition: opacity 0.3s; -webkit-transition: opacity 0.3s; transition: opacity 0.3s; }
 .tooltip.is-visible { opacity: 1; visibility: visible; }
