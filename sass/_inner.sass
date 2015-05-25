@@ -13,7 +13,6 @@
 		height: 590px
 	+r(992)
 		width: 100%
-		h	
 	img
 		height: 100%
 		width: auto
@@ -83,13 +82,102 @@ h1
 	border-radius: 0 0 10px 0
 	background-color: transparent
 	+transition(color .2s, border-color .3s, background-color .3s)
+	span
+		vertical-align: middle
 	&:hover
 		color: $red
 		border-color: $red
 	&:active
 		border-color: $red-action
 		background-color: $red-action
-		color: #fff 
+		color: #fff
+	&_facebook,
+	&_twitter,
+	&_vk
+		padding: 0 15px
+		text-align: center
+		color: #fff
+		line-height: 22px
+		+transition(border-color .2s, background-color .2s, color .2s)
+		i
+			vertical-align: middle
+	&_twitter
+		border-color: $twitter
+		background-color: $twitter 
+		i
+			margin-right: 15px 
+			+svg(twitter-white,20,17)
+		&:hover
+			background-color: transparent
+			color: $twitter
+			border-color: $twitter
+			.count
+				color: $twitter
+			i
+				+svg(twitter-hover,20,17)
+		&:active
+			border-color: $twitter-action
+			background-color: $twitter-action
+			color: #fff
+			i
+				+svg(twitter-white,20,17)
+			.count
+				color: #FFF 
+	&_facebook
+		border-color: $facebook
+		background-color: $facebook 
+		i
+			margin-right: 26px 
+			+svg(facebook-white,10,17)
+		&:hover
+			background-color: transparent
+			color: $facebook
+			border-color: $facebook
+			.count
+				color: $facebook
+			i
+				+svg(facebook-hover,10,17)
+		&:active
+			border-color: $facebook-action
+			background-color: $facebook-action
+			color: #fff
+			i
+				+svg(facebook-white,10,17)
+			.count
+				color: #FFF
+	&_vk
+		border-color: $vk
+		background-color: $vk 
+		i
+			margin-right: 10px 
+			+svg(vk-white,25,15)
+		&:hover
+			background-color: transparent
+			color: $vk
+			border-color: $vk
+			.count
+				color: $vk
+			i
+				+svg(vk-hover,25,15)
+		&:active
+			border-color: $vk-action
+			background-color: $vk-action
+			color: #fff
+			i
+				+svg(vk-white,25,15)
+			.count
+				color: #FFF 
+.count
+	margin-left: 42px
+	text-align: right
+	display: inline-block
+	font-size: 10px
+	vertical-align: middle
+	color: #fff
+	line-height: 25px 
+	+bold
+	+roboto
+	+tr(color .2s)
 .title-wrap
 	margin: 19px 0 18px
 	+r(1170)
@@ -99,4 +187,8 @@ h1
 			margin-bottom: 18px
 .descr
 	p
-		line-height: 1.7 
+		line-height: 1.7
+.share
+	margin-top: 25px
+	.btn
+		margin-right: 32px

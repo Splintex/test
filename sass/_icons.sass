@@ -123,11 +123,32 @@
 .icon-calendar-white
 	+svg(calendar-white,18,14)
 .icon-more
-	+svg(more,9,10)
-	&:hover
+	position: relative
+	display: inline-block
+	width: 9px
+	height: 10px
+	&:before,
+	&:after
+		content: "" 
+		position: absolute
+		left: 0
+		top: 0
+		+tr(opacity .3s)
+	&:before
+		+svg(more,9,10)
+	&:after
 		+svg(more-hover,9,10)
+		opacity: 0
+	&:hover
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
 	&:active
-		+svg(more-action,9,10)
+		&:before
+			opacity: 0
+		&:after
+			opacity: .7
 .arr-left
 	position: absolute
 	top: 0
