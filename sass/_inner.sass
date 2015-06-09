@@ -1,21 +1,109 @@
 .page-top
 	position: relative
-	padding-top: 25px 
+	.row_no-pad-sm
+		.col-sm-12
+			+r(992)
+				padding: 0
+	&__child
+		padding-top: 25px
+		z-index: 5
+		.wrap
+			display: inline-block
+		+r(992)
+			position: absolute
+			padding-top: 30px
+			.breadcrumbs__item
+				span
+					border-color: #fff					
+					&:hover
+						border-color: rgba(#fff,.5)
+						color: rgba(#fff,.5)
+					&:active
+						border-color: transparent
+						color: #FFF 
+				&.is-inactive
+					span
+						&:hover
+							border-color: #FFF
+							color: #FFF  
+						&:active
+							border-color: #fff
+			h1
+				color: #fff
+			.btn
+				border-color: #fff
+				color: #fff
+				&:hover
+					background-color: rgba(#fff, .5)
+					border-color: rgba(#fff, 0)
+					color: $title
+				&:active
+					background-color: #fff
+					border-color: #fff
+					color: $title
+		+r(768)
+			top: 0
+			right: 0
+			left: 0
+			height: 360px
+			h1
+				position: absolute
+				top: 113px
+				width: 100%
+				text-align: center
+			.wrap
+				position: absolute
+				bottom: 30px
+				width: 100%
+				text-align: center
+				margin: auto
+				display: inline-block
 .photo
-	position: absolute
-	right: 0 
-	top: 0
 	height: 490px
 	width: 360px
 	overflow: hidden
+	position: relative
+	+transition(width .3s, height .3s)
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		+g(rgba(#000,.7), rgba(#000,.2))
+		z-index: 4
 	+r(1170)
 		width: 290px
 		height: 590px
 	+r(992)
+		height: 360px
 		width: 100%
+		margin-bottom: 13px
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background: rgba(217,37,28,.5)
+			z-index: 3
+	+r(768)
+		height: 370px
 	img
 		height: 100%
 		width: auto
+		position: absolute
+		+transform(translateY(-50%) translateX(-50%))
+		top: 50%
+		left: 50% 
+		+r(992)
+			height: auto
+			width: 100%
+		+r(570)
+			height: 100%
+			width: auto
 .breadcrumbs
 	+clr
 	+r(768)
@@ -51,10 +139,11 @@
 		&.is-inactive
 			&:after
 				display: none
-			&:active
-				color: inherit
-			&:hover
-				border-color: transparent
+			span
+				&:active
+					color: inherit
+				&:hover
+					border-color: transparent
 	
 h1
 	font-size: 36px 
@@ -67,9 +156,11 @@ h1
 	vertical-align: middle 
 	+r(1170)
 		display: block
+	+r(768)
+		font-size: 20px
 .btn
 	display: inline-block
-	padding: 0 20px
+	padding: 0 15px
 	height: 30px
 	font-size: 12px
 	text-transform: uppercase
@@ -94,19 +185,22 @@ h1
 	&_facebook,
 	&_twitter,
 	&_vk
-		padding: 0 15px
+		padding: 0 12px
 		text-align: center
 		color: #fff
 		line-height: 22px
 		+transition(border-color .2s, background-color .2s, color .2s)
 		i
 			vertical-align: middle
+		text-align: left
 	&_twitter
 		border-color: $twitter
 		background-color: $twitter 
 		i
 			margin-right: 15px 
 			+svg(twitter-white,20,17)
+			+r(1170)
+				margin-right: 6px
 		&:hover
 			background-color: transparent
 			color: $twitter
@@ -129,6 +223,8 @@ h1
 		i
 			margin-right: 26px 
 			+svg(facebook-white,10,17)
+			+r(1170)
+				margin-right: 16px
 		&:hover
 			background-color: transparent
 			color: $facebook
@@ -149,8 +245,10 @@ h1
 		border-color: $vk
 		background-color: $vk 
 		i
-			margin-right: 10px 
+			margin-right: 6px 
 			+svg(vk-white,25,15)
+			+r(1170)
+				margin-right: 4px 
 		&:hover
 			background-color: transparent
 			color: $vk
@@ -168,7 +266,7 @@ h1
 			.count
 				color: #FFF 
 .count
-	margin-left: 42px
+	min-width: 46px
 	text-align: right
 	display: inline-block
 	font-size: 10px
@@ -178,6 +276,8 @@ h1
 	+bold
 	+roboto
 	+tr(color .2s)
+	+r(1170)
+		min-width: 25px 
 .title-wrap
 	margin: 19px 0 18px
 	+r(1170)
@@ -189,6 +289,160 @@ h1
 	p
 		line-height: 1.7
 .share
-	margin-top: 25px
+	margin: 25px 0 7px
 	.btn
 		margin-right: 32px
+	+r(768)
+		text-align: center
+		.btn_vk
+			margin-right: 0
+		span
+			display: none
+.name-toggle
+	line-height: 1 
+	position: relative
+	z-index: 3 
+	overflow: hidden
+	margin-bottom: 4px
+	display: block
+	i
+		float: left
+		margin-right: 7px
+	span
+		overflow: hidden
+		text-transform: uppercase
+		font-size: 12px 
+		+exo
+		+semibold
+		color: $title
+		border-bottom: 2px solid transparent
+		+transition(color .2s, border-color .2s)
+	&:hover
+		span
+			border-color: $title
+	&:active
+		span
+			border-color: transparent
+			color: $text
+		i
+			+svg(category, 18,20)
+	&.is-active
+		span
+			border-color: transparent
+			color: $text
+		i
+			+svg(category, 18,20)
+.list
+	+transform(translateY(-100%))
+	height: 0	
+	padding-left: 27px
+	overflow-y: hidden
+	overflow-x: auto
+	position: relative
+	z-index: 2 
+	height: 0
+	padding-bottom: 14px
+	+transition(transform .7s, height .7s)
+	&__item
+		overflow-y: auto
+		+roboto
+		letter-spacing: 0
+		+bold
+		font-size: 12px
+		line-height: 1.5
+		margin-bottom: 10px  
+		a
+			color: $title 	
+	&.is-active
+		+transform(translateY(0))
+		height: 100%
+		
+.photo-box
+	margin: 30px 0
+	+clr
+	.col-xs-6
+		+r(768)
+			float: left
+	+r(992)
+		margin-top: 5px 	
+	&__img
+		height: 185px
+		position: relative
+		overflow: hidden
+		display: block
+		margin-bottom: 30px
+		&:after
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			background-color: transparent
+			+tr(background-color .2s)
+		&:hover
+			&:after
+				background-color: rgba(217,37,28,.5)
+		&:active
+			&:after
+				background-color: rgba(217,37,28,.3)
+		&.is-col-2
+			min-width: 165px 
+		&.is-col-3
+			min-width: 262px
+		&.is-col-4
+			min-width: 360px 
+		&.is-col-6
+			min-width: 556px
+		&.is-col-8
+			min-width: 750px
+		&.is-col-md-2
+			+r(1170)
+				min-width: 133px
+		&.is-col-md-3
+			+r(1170)
+				min-width: 212px
+		&.is-col-md-4
+			+r(1170)
+				min-width: 293px
+		&.is-col-md-5
+			+r(1170)
+				min-width: 380px
+		&.is-col-md-8
+			+r(1170)
+				min-width: 617px	
+		&.is-col-sm-3
+			+r(992)
+				min-width: 160px		
+		&.is-col-sm-5
+			+r(992)
+				min-width: 283px 		
+		&.is-col-sm-6
+			+r(992)
+				min-width: 348px		
+		&.is-col-sm-7
+			+r(992)
+				min-width: 407px
+		&.is-col-xs-6
+			+r(768)
+				min-width: 131px
+				height: 184px
+			+r(625)
+				img
+					height: 100%
+					width: auto 
+		&.is-col-xs-12
+			+r(768)
+				min-width: 290px
+				height: 185px	
+
+		img
+			height: 100%
+			width: auto
+			position: absolute
+			top: 50%
+			left: 50%
+			+transform(translateY(-50%) translateX(-50%))  
+
+		
+			

@@ -151,6 +151,7 @@
 		+reg
 		+roboto
 		font-size: 14px
+		letter-spacing: 0
 		+r(768)
 			display: none
 	.title
@@ -235,7 +236,7 @@
 
 .title
 	display: inline-block
-	font-size: 24px
+	font-size: 25px
 	color: $text
 	text-transform: uppercase
 	+exo
@@ -243,7 +244,6 @@
 	+r(992)
 		font-size: 18px 
 	+r(768)
-		margin: 25px 0 15px 
 		font-size: 16px
 	span
 		+r(768)
@@ -275,6 +275,10 @@
 	.arr-left
 		+r(768)
 			display: none
+	&_left
+		text-align: left
+		+r(768)
+			text-align: center
 	
 .strip
 	display: block
@@ -649,10 +653,12 @@
 				border-color: transparent
 				color: $text   
 .badge-date
-	padding: 5px 12px 13px
+	padding: 5px 0 13px
 	background: $red
+	width: 66px
 	color: #FFF
 	z-index: 5
+	text-align: center
 	+med
 	font-size: 10px
 	border-radius: 0 0 0 10px

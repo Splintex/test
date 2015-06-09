@@ -9,6 +9,12 @@ $(document).ready(function() {
 			$(".js-cover").removeClass("is-covered");
 			$("body").removeClass("is-visible-items");
 		}
+		if ($(".js-btn-name").length) {
+			$(".js-btn-name").removeClass("is-active");
+			$(".list").removeClass("is-active");
+		}
+		
+		
 	});
 
 // init variables
@@ -533,5 +539,29 @@ $(document).ready(function() {
 	// 	$(".js-soc-panel a").removeClass("is-active");
 	// });
 
+	$(".js-btn-name").on("click",function(event){
+		if ($(this).hasClass("is-active")) {
+			$(".js-btn-name").removeClass("is-active");
+			$(".list").removeClass("is-active");
+		}
+		else {
+			$(".js-btn-name").removeClass("is-active");
+			$(this).addClass("is-active");
+			$(".list").removeClass("is-active");
+			$(this).parents(".list-wrap").find(".list").addClass("is-active");
+		}
+		
+		event.stopPropagation();
+		return false;
+	});
+	$(".list").on("click",function(event){
+		event.stopPropagation();
+	});
+
+
+
+	$(".js-fancybox").fancybox({
+		padding: 50
+	});
 });
 
