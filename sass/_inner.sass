@@ -4,15 +4,25 @@
 		.col-sm-12
 			+r(992)
 				padding: 0
-	&__child
-		padding-top: 25px
+	&__child	
 		z-index: 5
 		.wrap
 			display: inline-block
+			padding-top: 1px 
+		+r(1170)
+			.title-wrap
+				h1
+					margin-bottom: 24px
+					display: block
+				.btn
+					margin-bottom: 4px
 		+r(992)
 			position: absolute
-			padding-top: 30px
-			.breadcrumbs__item
+			.breadcrumbs__item				
+				color: #fff
+				border-color: #fff 
+				&:after
+					+svg(arr-right-white,5,10)
 				span
 					border-color: #fff					
 					&:hover
@@ -48,16 +58,17 @@
 			height: 360px
 			h1
 				position: absolute
-				top: 113px
+				top: 108px
 				width: 100%
 				text-align: center
 			.wrap
 				position: absolute
-				bottom: 30px
+				bottom: 15px
 				width: 100%
 				text-align: center
 				margin: auto
 				display: inline-block
+				left: 0
 .photo
 	height: 490px
 	width: 360px
@@ -106,6 +117,7 @@
 			width: auto
 .breadcrumbs
 	+clr
+	margin-top: 29px
 	+r(768)
 		display: none
 	&__item
@@ -114,22 +126,21 @@
 		line-height: 1
 		+roboto
 		+bold
-		color: $head-top
-		
+		color: $head-top		
 		+transition(color .2s)
-		+r(992)
-			color: #fff
-			border-color: #fff 
+		
+		
 		&:after
 			content: ""
 			vertical-align: middle
 			display: inline-block
-			margin: 0 5px 
+			margin: 0 3px 
 			+svg(arr-right-crumbs,5,10)
-			+r(992)
-				+svg(arr-right-white,5,10)
+
+				
 		span
 			border-bottom: 2px solid transparent
+			text-transform: capitalize 
 			+tr(border-color .2s)
 			&:hover
 				border-color: $title
@@ -146,21 +157,23 @@
 					border-color: transparent
 	
 h1
-	font-size: 36px 
+	font-size: 37px 
 	+exo
 	+semibold
+	letter-spacing: 3px
 	color: $text
 	display: inline-block
-	margin-right: 30px
+	margin-right: 20px
 	text-transform: uppercase
 	vertical-align: middle 
-	+r(1170)
-		display: block
 	+r(768)
 		font-size: 20px
+		display: block
+.marg-foot-50
+	margin-bottom: 48px 
 .btn
 	display: inline-block
-	padding: 0 15px
+	padding: 0 14px
 	height: 30px
 	font-size: 12px
 	text-transform: uppercase
@@ -195,9 +208,22 @@ h1
 		text-align: left
 	&_twitter
 		border-color: $twitter
-		background-color: $twitter 
+		background-color: $twitter
+		margin-right: 29px
+		+r(1170)
+			margin-right: 26px
+		+r(768)
+			margin-right: 28px 
+		.count
+			min-width: 50px
+			+r(1170)
+				min-width: 25px 
+			+r(992)
+				min-width: 50px
+			+r(768)
+				min-width: 18px 
 		i
-			margin-right: 15px 
+			margin-right: 13px 
 			+svg(twitter-white,20,17)
 			+r(1170)
 				margin-right: 6px
@@ -220,11 +246,25 @@ h1
 	&_facebook
 		border-color: $facebook
 		background-color: $facebook 
+		margin-right: 26px
+		+r(1170)
+			margin-right: 27px 
+
+		.count
+			min-width: 55px
+			+r(1170)
+				min-width: 27px
+			+r(992)
+				min-width: 55px 
+			+r(768)
+				min-width: 18px
 		i
-			margin-right: 26px 
+			margin-right: 23px 
 			+svg(facebook-white,10,17)
 			+r(1170)
-				margin-right: 16px
+				margin-right: 17px
+			+r(768)
+				margin-right: 15px
 		&:hover
 			background-color: transparent
 			color: $facebook
@@ -244,11 +284,20 @@ h1
 	&_vk
 		border-color: $vk
 		background-color: $vk 
+		margin-right: 26px
+		.count
+			min-width: 55px
+			+r(1170)
+				min-width: 26px
+			+r(992)
+				min-width: 55px
+			+r(768)
+				min-width: 16px 
 		i
-			margin-right: 6px 
+			margin-right: 7px 
 			+svg(vk-white,25,15)
 			+r(1170)
-				margin-right: 4px 
+				margin-right: 3px 
 		&:hover
 			background-color: transparent
 			color: $vk
@@ -266,7 +315,7 @@ h1
 			.count
 				color: #FFF 
 .count
-	min-width: 46px
+	min-width: 50px
 	text-align: right
 	display: inline-block
 	font-size: 10px
@@ -280,20 +329,31 @@ h1
 		min-width: 25px 
 .title-wrap
 	margin: 19px 0 18px
-	+r(1170)
+	h1
+		vertical-align: middle
+	.btn
+		vertical-align: middle
+	&.plus-marg
+		margin-bottom: 24px 
+	+r(768)
+		text-align: center
+		margin-top: 24px
 		h1
-			margin-bottom: 24px
+			margin-bottom: 12px
 		.btn
-			margin-bottom: 18px
+			margin-bottom: 4px
+	
 .descr
 	p
 		line-height: 1.7
 .share
-	margin: 25px 0 7px
-	.btn
-		margin-right: 32px
+	margin: 26px 0 7px
+	+r(1170)
+		margin-top: 28px
+	+r(992)
+		margin-top: 17px
 	+r(768)
-		text-align: center
+		margin-top: 25px
 		.btn_vk
 			margin-right: 0
 		span
@@ -305,6 +365,8 @@ h1
 	overflow: hidden
 	margin-bottom: 4px
 	display: block
+	+r(768)
+		+bold
 	i
 		float: left
 		margin-right: 7px
@@ -358,7 +420,7 @@ h1
 		height: 100%
 		
 .photo-box
-	margin: 30px 0
+	margin-top: 29px
 	+clr
 	.col-xs-6
 		+r(768)

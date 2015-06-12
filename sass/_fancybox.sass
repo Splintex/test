@@ -36,6 +36,9 @@
 	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5)
 	-moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5)
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5)
+.fancybox-overlay
+	background: rgba(#000, .5)
+	padding: 50px
 
 .fancybox-outer, .fancybox-inner
 	position: relative
@@ -87,20 +90,23 @@
 
 .fancybox-nav
 	position: absolute
-	top: 0
-	width: 40%
-	height: 100%
+	top: 50%
+	margin-top: -9px
 	cursor: pointer
 	text-decoration: none
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 	z-index: 8040
 
 .fancybox-prev
-	left: 0
-
+	left: -15px
+	+svg(arr-left-white,8,18)
+	+r(768)
+		left: 15px
 .fancybox-next
-	right: 0
-
+	right: -15px
+	+svg(arr-right-white,8,18)
+	+r(768)
+		right: 15px
 .fancybox-nav span
 	position: absolute
 	top: 50%
