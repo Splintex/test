@@ -21,8 +21,8 @@
 			.breadcrumbs__item				
 				color: #fff
 				border-color: #fff 
-				&:after
-					+svg(arr-right-white,5,10)
+				&:before
+					+svg(arr-right-small-white,5,10)
 				span
 					border-color: #fff					
 					&:hover
@@ -124,18 +124,25 @@
 		float: left
 		font-size: 12px
 		line-height: 1
+		position: relative
 		+roboto
 		+bold
 		color: $head-top		
 		+transition(color .2s)
-		
-		
-		&:after
+		margin-left: 12px
+		&:first-child
+			&:before
+				display: none
+				margin-left: 0 		
+		&:before
 			content: ""
+			position: absolute
 			vertical-align: middle
 			display: inline-block
-			margin: 0 3px 
-			+svg(arr-right-crumbs,5,10)
+			margin: -5px
+			left: -3px 
+			top: 50%
+			+svg(arr-right-small,6,10)
 
 				
 		span
@@ -147,20 +154,12 @@
 			&:active
 				color: $text 
 				border-color: transparent 
-		&.is-inactive
-			&:after
-				display: none
-			span
-				&:active
-					color: inherit
-				&:hover
-					border-color: transparent
 	
 h1
 	font-size: 37px 
 	+exo
 	+semibold
-	letter-spacing: 3px
+	letter-spacing: 1px
 	color: $text
 	display: inline-block
 	margin-right: 20px
@@ -340,6 +339,7 @@ h1
 		margin-top: 24px
 		h1
 			margin-bottom: 12px
+			margin-right: 0
 		.btn
 			margin-bottom: 4px
 	
@@ -407,14 +407,21 @@ h1
 	+transition(transform .7s, height .7s)
 	&__item
 		overflow-y: auto
-		+roboto
 		letter-spacing: 0
-		+bold
-		font-size: 12px
-		line-height: 1.5
-		margin-bottom: 10px  
+		margin-bottom: 8px  
 		a
-			color: $title 	
+			line-height: 1.5
+			+roboto
+			+bold
+			font-size: 12px
+			color: $title
+			border-bottom: 2px solid transparent
+			+transition(border-color .2s, color .2s)
+			&:hover
+				border-color: $title
+			&:active
+				border: none
+				color: $text	
 	&.is-active
 		+transform(translateY(0))
 		height: 100%
@@ -459,19 +466,19 @@ h1
 		&.is-col-8
 			min-width: 750px
 		&.is-col-md-2
-			+r(1170)
+			+r(1200)
 				min-width: 133px
 		&.is-col-md-3
-			+r(1170)
+			+r(1200)
 				min-width: 212px
 		&.is-col-md-4
-			+r(1170)
+			+r(1200)
 				min-width: 293px
 		&.is-col-md-5
-			+r(1170)
+			+r(1200)
 				min-width: 380px
 		&.is-col-md-8
-			+r(1170)
+			+r(1200)
 				min-width: 617px	
 		&.is-col-sm-3
 			+r(992)

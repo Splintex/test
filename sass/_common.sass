@@ -348,11 +348,6 @@ body
 		position: relative
 		font-size: 14px
 		&:hover
-			.menu__link
-				color: $red
-				&:after
-					left: 0
-					right: 0
 			.submenu
 				visibility: visible
 				opacity: 1
@@ -386,6 +381,11 @@ body
 			height: 2px 
 			bottom: 7px
 			+transition(left .3s, right .3s)
+		&:hover
+			color: $red
+			&:after
+				left: 0
+				right: 0
 		&:active
 			color: $red-action
 			&:after

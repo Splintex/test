@@ -531,6 +531,11 @@
 		width: 220px
 	+r(768)
 		width: 240px
+a.item
+	&:hover
+		.item__head
+			&:before
+				background-color: rgba(#410e0b, .5)
 .item
 	width: 260px
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.05)
@@ -563,6 +568,8 @@
 					+semibold
 					font-size: 25px
 					color: #FFF
+					&:hover
+						border-bottom: 2px solid transparent
 		.item__name
 			.icon-category
 				+svg(category-white, 18, 20)
@@ -683,6 +690,8 @@
 		background: #fff
 		padding: 10px 15px 15px
 		+r(992)
+			border-radius: 0 0 10px 0
+		&.with-corner
 			border-radius: 0 0 10px 0
 	&__name
 		color: $text
