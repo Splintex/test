@@ -1,0 +1,37 @@
+.material-tooltip {
+    padding: 10px 23px;
+    color: #727271;
+    font-size: 13px;
+    font-family: "museosanscyrl_300", Arial, Helvetica, sans-serif;
+    z-index: 2000;
+    background-color: transparent;
+    border-radius: 4px;
+    
+    min-height: 36px;
+    line-height: 1rem;
+    // max-width: 350px;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    left:0;
+    top:0;
+
+    will-change: top, left;
+}
+
+.backdrop {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  height: 7px;
+  width: 14px;
+  border-radius: 4px;
+  background-color: #FEFEFE;
+  z-index: -1;
+  
+  @include transform-origin( 50% 10%);
+
+  will-change: transform, opacity;
+}

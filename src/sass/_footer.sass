@@ -1,0 +1,165 @@
+
+.footer
+	position: relative
+	z-index: 2
+	padding: 72px 0 35px 
+	color: #8f8f8f
+	font-size: 17px
+	+f500
+	overflow: hidden
+	background: #3c3d41 
+	+r($m)
+		padding: 40px 0 50px
+		position: static
+	+r($s)
+		font-size: 15px
+		padding-bottom: 75px
+	&__col
+		float: left
+		padding-right: 10px
+		
+	&__col-1
+		width: 20.3%
+		+r(1023)
+			width: 30%
+		+r($m)
+			width: 100%
+	&__col-2
+		width: 24.6%
+		+r(1023)
+			width: 40%
+		+r($m)
+			width: 60%
+	&__col-3
+		width: 14%
+		+r(1023)
+			width: 30%
+		+r($m)
+			width: 40%
+	&__col-4
+		width: 19.5%
+	&__col-5
+		width: 21.6%
+		padding-right: 0
+	.logo
+		margin-bottom: 30px
+		+r(1023)
+			margin-bottom: 20px
+	.soc
+		margin: 22px 0 0 -15px
+		+r($m)
+			margin-bottom: 20px
+	&__links
+		li
+			margin-bottom: 20px
+		a
+			color: #8f8f8f
+			+tr(color .3s)
+			&:hover
+				color: $red
+	&__nav
+		font-size: 17px
+		text-transform: uppercase
+		+f900
+		+r($s)
+			font-size: 12px
+		li
+			margin-bottom: 20px
+			+r(1023)
+				margin-bottom: 26px
+		a
+			color: #fff 
+			+tr(color .3s)
+			&:hover
+				color: $red
+	&__soc
+		a
+			display: inline-block
+		span
+			width: 40px
+			display: inline-block
+			position: relative
+			text-align: center
+		.icon-fb
+			font-size: 18px
+		.icon-tw
+			font-size: 15px
+		.icon-ig
+			font-size: 16px
+		.icon-sc
+			font-size: 11px
+	&__title
+		margin-bottom: 45px
+		font-size: 14px
+		color: #fff 
+		+f900
+		text-transform: uppercase
+.copyright
+	+r($m)
+		position: absolute
+		bottom: -45px
+		left: 0
+	p
+		+r($m)
+			display: inline-block
+.subscribe
+	position: relative
+	&__input
+		display: block
+		padding: 0 60px 0 25px 
+		width: 100%
+		height: 50px
+		background: #2e2e30
+		border: 0
+		+tr(background .3s)
+		+f500
+		-webkit-border-radius: 2px 
+		border-radius: 2px 
+		font-size: 17px
+		color: $dark 
+		+placeholder
+			color: #8f8f8f 
+		&:focus
+			background: #FEFEFE 
+	.btn
+		position: absolute
+		right: 0
+		top: 0
+		height: 50px
+		width: 50px
+		border-radius: 0 2px 2px 0
+		line-height: 50px
+		-webkit-box-shadow: none 
+		box-shadow: none 
+		i
+			position: absolute
+			left: 50%
+			top: 50%
+			font-size: 13px
+			+transform(translate3d(-50%,-50%,0))
+.soc
+	li
+		display: inline-block
+		vertical-align: middle
+	a
+		display: block
+		width: 40px
+		height: 40px
+		color: #888 
+		line-height: 40px
+		text-align: center
+		+tr(color .3s)
+		&:hover
+			color: $red 
+		i
+			display: inline-block
+			vertical-align: middle
+			 
+	.icon-fb
+		font-size: 18px
+	.icon-tw
+		font-size: 15px
+	.icon-ig
+		font-size: 16px
+	.icon-sc
+		font-size: 11px
