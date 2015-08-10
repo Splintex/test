@@ -1,44 +1,38 @@
 .dropdown-content {
-  //@extend .z-depth-1;
- 
+  @extend .z-depth-1;
+  background-color: $dropdown-bg-color;
   margin: 0;
   display: none;
+  min-width: 100px;
+  width: auto !important;
+  max-height: 650px;
+  overflow-y: auto;
   opacity: 0;
   position: absolute;
   z-index: 999;
   will-change: width, height;
   
-  ul {
-    border: 1px solid #d7d8d8; 
-    border-radius: 5px;
-    min-width: 105px;
-    background-color: #fff;
-    padding: 8px 8px 8px 0;
-    max-height: 240px;
-    overflow-y: auto;
-  }
+
   li {
     clear: both;
-    color: #727271;
-    padding-right: 7px;
+    color: $off-black;
     cursor: pointer;
-    line-height: 1.3;
+    line-height: 1.5rem;
     width: 100%;
     text-align: left;
     text-transform: none;
 
     &:hover, &.active {
-      color: #FF3A00;
-      & > a, & > span {
-        color: #FF3A00;
+      a {
+        color: #dd0017;
       }
     }
 
     & > a, & > span {
-      font-size: 17px;
-      color: #727271;
+      //font-size: 1.2rem;
+      color: $dropdown-color;
       display: block;
-      padding: 6px 0 6px 20px;
+      padding: 1rem 1rem;
     }
 
     // Icon alignment override

@@ -4,7 +4,6 @@ $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
 $secondary-color: color("teal", "lighten-1") !default;
-//$secondary-color: color("materialize-red", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
@@ -15,7 +14,6 @@ $badge-bg-color: $secondary-color !default;
 /*** Buttons ***/
 $button-bg-color-disabled: #DFDFDF !default;
 $button-color: $secondary-color !default;
-$button-color: #ff3a00;
 $button-color-disabled: #9F9F9F !default;
 $button-color-flat: #343434 !default;
 $button-color-raised: #fff !default;
@@ -77,28 +75,17 @@ $datepicker-selected-outfocus: desaturate(lighten($secondary-color, 35%), 15%) !
 
 /*** Global ***/
 // Media Query Ranges
-$smaller-screen-up: 320px !default;
-$small-screen-up: 360px !default;
-$medium-screen-up: 767px !default;
-$large-screen-up: 940px !default;
-$largest-screen-up: 1100px !default;
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
 
-$smaller-screen: 320px !default;
-$small-screen: 360px !default;
-$medium-screen: 767px !default;
-$large-screen: 940px !default;
-$largest-screen: 1100px !default;
-
-$medium-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
-$large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
-$largest-and-up: "only screen and (min-width : #{$largest-screen-up})" !default;
-
-$smaller-and-down: "only screen and (max-width : #{$smaller-screen})" !default;
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
-$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
-$largest-and-down: "only screen and (max-width : #{$largest-screen})" !default;
-
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
 // Grid Variables
@@ -147,8 +134,8 @@ $h5-fontsize: 1.64rem !default;
 $h6-fontsize: 1rem !default;
 
 // Footer
-//$footer-bg-color: $primary-color !default;
-$footer-bg-color: #3c3d41;
+$footer-bg-color: $primary-color !default;
+
 // Flowtext
 $range : $large-screen - $small-screen !default;
 $intervals: 20 !default;

@@ -1,32 +1,24 @@
 // shared styles
 .btn, .btn-flat {
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
   display: inline-block;
-  height: $button-height;
-  line-height: $button-line-height;
+  height: 40px;
+  line-height: 40px;
   // margin-bottom: 15px;
   outline: 0;
-  padding: 0 2rem;
-  //text-transform: uppercase;
+  padding: 0 18px;
+  font-size: 15px;
+  border-radius: 3px;
   vertical-align: middle;
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
 }
 // Disabled shared style
 .btn.disabled, .btn-floating.disabled, .btn-large.disabled, .btn:disabled, .btn-large:disabled, .btn-floating:disabled {
-  background-color: $button-bg-color-disabled !important;
-  box-shadow: none;
-  color: $button-color-disabled !important;
-  cursor: default;
-  * {
-    pointer-events: none;
-  }
-
-  &:hover {
-    background-color: $button-bg-color-disabled;
-    color: $button-color-disabled;
-  }
+  background: none !important;
+  border: 1px solid #fad9dc;
+  color: #dd0017;
 }
 // Shared icon styles
 .btn, .btn-floating, .btn-large, .btn-flat {
@@ -39,20 +31,25 @@
 // Raised Button
 .btn {
   text-decoration:none;
-  color: $button-color-raised;
-  background-color: $button-color;
+  color: #fff;
+  background-color: #dd0017;
   text-align: center;
   //@extend .z-depth-1;
-  height: 45px;
-  line-height: 45px;
-  font-size: 14px;
-  font-family: "museosanscyrl_900", Arial, Helvetica, sans-serif;
   @include transition(.2s ease-out);
   cursor: pointer;
-  padding: 0 15px;
+
   &:hover {
-    background-color: #CA2F23;
+    background-color: darken(#dd0017, 5%);
     //@extend .z-depth-1-half;
+  }
+  &_border {
+    background: none;
+    color: #dd0017;
+    border: 1px solid #fad9dc;
+    &:hover {
+      border-color: #dd0017;
+      background: none;
+    }
   }
 }
 
@@ -91,7 +88,7 @@
   }
   &.btn-large {
     width: $button-floating-size * 1.5;
-    height: 55px;
+    height: $button-floating-size * 1.5;
     i{
       line-height: $button-floating-size * 1.5;
     }
@@ -146,10 +143,9 @@ button.btn-floating {
 // Large button
 .btn-large {
   @extend .btn;
-  height: 55px;
-  line-height: 55px;
-  font-size: 19px;
-  font-family: "museosanscyrl_700", Arial, Helvetica, sans-serif;
+  height: $button-height * 1.5;
+  line-height: 56px;
+
   i {
     font-size: $button-large-icon-font-size;
   }

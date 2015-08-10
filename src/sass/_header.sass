@@ -1,411 +1,141 @@
 .header
-	background: #fff
 	position: fixed
 	top: 0
+	right: 0
 	left: 0
-	right: 0 
 	z-index: 10
-	&.is-active
-		.header__bottom
-			transform: translateY(0)
-	&.is-fixed
-		.header__bottom
-			+tr(transform .3s)
+	+gpu
+	min-width: 1200px
 	&__top
 		position: relative
 		z-index: 2
-		.btn
-			height: 51px
-			line-height: 51px
-			width: 63px
-			padding: 0
-			text-align: center
-			+r($l)
-				display: none
-		.btn-menu
-			position: relative
-			display: inline-block
-			margin-left: 6px
-			vertical-align: middle
-			+r($l)
-				display: none
-		.btn-menu_main
-			display: none
-			+r($l)
-				display: inline-block
-	&__top,
-	&__bottom
-		position: relative
-		padding-top: 12px
-		background: #fff
-		height: 75px 
-		border-bottom: 1px solid $border
-	&__bottom
+		height: 86px
+		line-height: 86px
+		border-bottom: 1px solid $border_d 
+		background: #fff 
+	&__logo
 		position: absolute
-		left: 0
-		top: 100%
-		right: 0
-		z-index: 1
-		transform: translateY(-100%)
-		
-
-		+r($l)
-			display: none
-		.logo
-			display: none
-		.btn-menu
-			display: none
-	&__band
-		display: inline-block
-		margin-right: 17px
-		vertical-align: middle
-		width: 370px
-		+r($l)
-			display: none
-	&__city
-		display: inline-block
-		margin-right: 17px
-		vertical-align: middle
-		width: 280px
-		+r($l)
-			display: none
-	.select2-container
-		margin: 0
-		height: 51px
-		line-height: 51px
-		.select2-selection--single
-			height: 51px
-			line-height: 51px
-	.logo
-		position: absolute
-		top: 7px
 		left: 10px
-		+svgi(logo-red)
+		top: 34px
+		+hide-text
+		+svg(logo,229,22)
 	&__main
 		text-align: right
+		padding-left: 250px
 		font-size: 0
-	a
-		color: $gray 
-		+tr(color .3s)
-		&:hover
-			color: $red  
-	// .search,
-	// .nav,
-	// .currency,
-	// .favorite,
-	// .user
-	// 	+r($l)
-	// 		display: none
-.header_index
-	position: absolute
-	background: none
-	padding-top: 28px
-	+r($m)
-		padding-top: 18px
-	&.is-active
-		.header__bottom
-			transform: translateY(0)
-	.header__bottom
-		background: none
-		border: 0
-		transform: translateY(0)
-		+r($l)
-			display: block
-		.logo
-			display: block
-		.btn-menu
-			+r($l)
-				display: block
-	.header__top
-		display: none
-	.search-form,
-	.nav,
-	.currency,
-	.favorite,
-	.user
-		+r($l)
-			display: none
-	.logo
-		+svgi(logo)
-	a
-		color: #fff 
-		&:hover
-			color: $red  
-	.search-form__btn
-		color: #fff
-	.search-form__main
-		.search-form__btn
-			color: $gray 
-	.dropdown
-		a
-			color: $gray 
+	&__nav
+		display: inline-block
+		vertical-align: middle
+		+light
+		> li
+			display: inline-block
+			vertical-align: middle
+			margin-left: 56px
+			font-size: 17px
+			+r(1366)
+				margin-left: 30px
+			&:first-child
+				margin-left: 0
+			&.is-active
+				a
+					&:after
+						content: ""
+						position: absolute
+						left: 0
+						right: 0
+						bottom: 0
+						height: 5px
+						background: $primary 
+			&.has-dropdown
+				> a
+					padding: 0 16px 
+					&:before
+						content: "\e60e" 
+						+icon
+						position: absolute
+						right: 0
+						top: 50%
+						font-size: 5px
+						color: #c0c0c0 
+						transition: color .3s
 			&:hover
-				color: $red
-	.user
-		&__pic
-			img
-				border-color: #fff
-		.icon-caret-d
-			color: #fff 
-	.btn-menu
-		i
-			background: #fff
-			&:before,
-			&:after
-				background: #fff 
-.search-form
-	display: inline-block
-	vertical-align: middle
-	position: relative
-	&__btn
+				> a
+					color: $primary 
+					&:before
+						color: $primary 
+			a
+				display: block
+				position: relative
+				color: #464646 
+				transition: color .3s
+				&:hover
+					color: $primary  
+					
+			li
+				transition: background .3s
+	&__search
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		top: -4px
+		margin-left: 42px
 		width: 50px
 		height: 50px
 		background: none
-		-webkit-border-radius: 50% 
+		+icon
+		color: #808080 
+		font-size: 18px
 		border-radius: 50% 
-		color: $gray
-		z-index: 1
-		font-size: 15px
 		+tr(color .3s)
-		&:hover
-			color: $red 
-		&:focus
-			background: none !important
-	&__main
-		position: absolute
-		right: 0
-		top: 0
-		opacity: 0
-		width: 260px
-		visibility: hidden
-		+tr(opacity .5s)
-		
-		.search-form__btn
-			position: absolute
-			right: 0
-			top: 0
-	&.is-active
-		.search-form__main
-			opacity: 1
-			z-index: 2
-			visibility: visible
-	
-.nav
-	display: inline-block
-	vertical-align: middle
-	white-space: nowrap
-	font-size: 0
-	li
-		display: inline-block
-		vertical-align: middle
-		margin: 0 15px
-		font-size: 17px 
-	a
-		display: block
-		height: 50px
-		line-height: 50px
-		+f500
-
-.currency
-	position: relative
-	font-size: 17px
-	display: inline-block
-	vertical-align: middle
-	&:hover
-		.currency__active
-			&:before,
-			&:after
-				opacity: 1 
-				
-	&__active
-		display: block
-		position: relative
-		width: 40px
-		height: 40px
-		line-height: 40px
-		text-align: center
-
-		
-.favorite
-	display: inline-block
-	position: relative
-	vertical-align: middle
-	&.is-active
-		.favorite__active
-			color: $yellow 
-	&__active
-		display: block
-		position: relative
-		width: 40px
-		height: 40px
-		line-height: 40px
-		text-align: center
-		font-size: 14px
-	.dropdown
-		min-width: 180px
-	.counter
-		left: 22px
-		top: -1px
-	
-.user
-	display: inline-block
-	margin: 0 -6px 0 15px
-	padding-right: 17px
-	position: relative
-	vertical-align: middle
-	font-size: 17px
-	.user__in
-		position: relative
-	.counter
-		top: 0
-		right: 0
-	&__pic
-		display: block
-		margin: 5px 0 0 5px 
-		width: 32px
-		height: 32px
-		border-radius: 50%
-		overflow: hidden
-		
-		img
-			display: block
-			width: 100%
-			height: auto
-			border: 1px solid #898989
-			-webkit-border-radius: 50% 
-			border-radius: 50% 
-	.counter
-		color: #fff 
-	.icon-caret-d
-		position: absolute
-		left: 44px
-		top: 50%
-		z-index: 2
-		margin-top: -3px
-		color: #898989 
-		font-size: 6px
-	.dropdown
-		margin-top: 16px
-		margin-right: 17px
-		.counter
-			top: 7px
-			
-.btn-menu
-	position: absolute
-	right: 0
-	top: 0
-	width: 50px
-	height: 50px
-	background: none
-	font-size: 0
-	line-height: 1
-	i
-		display: inline-block
-		vertical-align: middle
-		position: relative
-		height: 4px
-		width: 29px
-		background: $gray
-		border-radius: 2px
-		&:before,
-		&:after
-			content: ""
-			position: absolute
-			left: 0 
-			height: 4px
-			width: 29px
-			background: $gray
-			border-radius: 2px
+		+r(1366)
+			margin-left: 25px
+		&:hover,
+		&.is-active
+			color: $primary 
 		&:before
-			top: -9px
-		&:after
-			bottom: -9px
+			content: "\e609"
 			
-.menu
-	position: fixed
-	top: 0
+			vertical-align: middle 
+	
+	&__links
+		display: inline-block
+		margin-left: 43px
+		vertical-align: middle
+		font-size: 0
+		+r(1366)
+			margin-left: 25px
+		li
+			display: inline-block
+			vertical-align: middle
+			margin-left: 62px 
+			+r(1366)
+				margin-left: 20px
+			&:first-child
+				margin-left: 0
+			&.is-marked
+				a
+					color: $primary
+					+bold
+					&:hover
+						color: $primary_h 
+		a
+			display: block
+			font-size: 15px
+			+reg
+			color: #898989
+			&:hover
+				color: $primary
+				+tr(color .3s)
+				
+
+.search
+	position: absolute
+	top: 100%
 	left: 0
 	right: 0
-	z-index: 9
-	padding-top: 75px
-	transform: translateY(-100%)
+	background: #fff 
+	padding: 10px 0 
+	transform: translate3d(0,-100%,0)
 	+tr(transform .3s)
-	background: rgba(#898989,.87) 
-	text-align: center
-	+f900
-	font-size: 15px
-	text-transform: uppercase
-	color: #fff 
-	max-height: 100%
-	overflow-y: auto
-	-ms-overflow-x: hidden
-	overflow-x: hidden
-	+r($m)
-		height: 100%
 	&.is-active
-		transform: translateY(0)
-	li
-		position: relative
-	a
-		display: block
-		position: relative
-		border-bottom: 1px solid #a3a4a4 
-		color: #fff
-		height: 57px
-		line-height: 57px
-		+tr(color .3s)
-		&:hover
-			color: $red 
-		span
-			display: inline-block
-			position: relative
-			line-height: 1
-	select
-		position: absolute
-		top: 0
-		left: 0
-		height: 100%
-		width: 100%
-		opacity: 0
-	&__carrency
-		left: -48px
-		+f500
-		top: 0
-		position: absolute
-		font-style: normal
-		font-size: 17px
-	.icon-caret-d
-		position: absolute
-		top: 3px
-		right: -33px
-		font-size: 6px
-	.icon-star
-		position: absolute
-		top: -2px
-		left: -40px
-	.user
-		margin: 0
-		position: absolute
-		left: -55px
-		top: -10px
-		&__pic
-			margin: 0
-			img
-				border-color: #fff 
-	.search-form
-		margin: 7px 0 
-		&__main
-			position: absolute
-			left: 50%
-			width: 260px
-			margin-left: -130px
-			.search-form__btn
-				color: #fff 
-		.input
-			background: #686868
-			height: 37px
-			color: #fff
-		&__btn
-			height: 37px
-			width: 37px
-			color: #fff 
+		transform: translate3d(0,0,0)

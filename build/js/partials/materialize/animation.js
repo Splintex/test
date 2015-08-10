@@ -1,8 +1,1 @@
-    // Custom Easing
-    jQuery.extend( jQuery.easing,
-    {
-      easeInOutMaterial: function (x, t, b, c, d) {
-        if ((t/=d/2) < 1) return c/2*t*t + b;
-        return c/4*((t-=2)*t*t + 2) + b;
-      }
-    });
+jQuery.extend(jQuery.easing,{easeInOutMaterial:function(e,n,r,t,u){return(n/=u/2)<1?t/2*n*n+r:t/4*((n-=2)*n*n+2)+r}});

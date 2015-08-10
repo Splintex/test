@@ -1,10 +1,14 @@
 //= ../../bower_components/jquery/dist/jquery.min.js
-//= ../../bower_components/select2/dist/js/select2.full.min.js
-//= ../../bower_components/slick-carousel/slick/slick.min.js
-//= ../../bower_components/masonry/dist/masonry.pkgd.min.js
+//= partials/materialize/jquery.easing.1.3.js
 //= ../../bower_components/jquery-validation/dist/jquery.validate.min.js
-
 //= partials/head.js
-//= partials/materialize/bin/materialize.min.js
+//= partials/materialize/global.js
+//= partials/materialize/animation.js
+//= partials/materialize/buttons.js
+//= partials/materialize/dropdown.js
+
+//= partials/materialize/transitions.js
+//= partials/materialize/waves.js
+
 
 //= app.js

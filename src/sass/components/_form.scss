@@ -2,10 +2,10 @@
 select:focus {
   outline: 1px solid lighten($secondary-color, 47%);
 }
-// button:focus {
-//   outline: none;
-//   background-color: lighten($button-color, 4%);
-// }
+button:focus {
+  outline: none;
+  //background-color: lighten($button-color, 4%);
+}
 
 label {
   font-size: $label-font-size;
@@ -32,9 +32,8 @@ label {
 :-ms-input-placeholder {
    color: lighten($input-border-color, 20%);
 }
-
-// Text inputs
 .md {
+  // Text inputs
   input[type=text],
   input[type=password],
   input[type=email],

@@ -1,165 +1,101 @@
 
 .footer
-	position: relative
-	z-index: 2
-	padding: 72px 0 35px 
-	color: #8f8f8f
-	font-size: 17px
-	+f500
-	overflow: hidden
-	background: #3c3d41 
-	+r($m)
-		padding: 40px 0 50px
-		position: static
-	+r($s)
-		font-size: 15px
-		padding-bottom: 75px
-	&__col
-		float: left
-		padding-right: 10px
-		
-	&__col-1
-		width: 20.3%
-		+r(1023)
-			width: 30%
-		+r($m)
-			width: 100%
-	&__col-2
-		width: 24.6%
-		+r(1023)
-			width: 40%
-		+r($m)
-			width: 60%
-	&__col-3
-		width: 14%
-		+r(1023)
-			width: 30%
-		+r($m)
-			width: 40%
-	&__col-4
-		width: 19.5%
-	&__col-5
-		width: 21.6%
-		padding-right: 0
-	.logo
-		margin-bottom: 30px
-		+r(1023)
-			margin-bottom: 20px
-	.soc
-		margin: 22px 0 0 -15px
-		+r($m)
-			margin-bottom: 20px
-	&__links
-		li
-			margin-bottom: 20px
-		a
-			color: #8f8f8f
-			+tr(color .3s)
-			&:hover
-				color: $red
+	border-top: 1px solid #ebebeb 
+	padding: 40px 0 0
+	text-align: center
+	background: #f9f9f9 
+	&__logo
+		display: block
+		margin-bottom: 48px
+		+hide-text
+		+svg(logo-gray,229,22)
 	&__nav
-		font-size: 17px
-		text-transform: uppercase
-		+f900
-		+r($s)
-			font-size: 12px
+		margin: 33px 0 35px
+		font-size: 16px
+		color: #707070 
+		+light
 		li
-			margin-bottom: 20px
-			+r(1023)
-				margin-bottom: 26px
+			display: inline-block
+			margin: 0 30px 
+			vertical-align: middle
 		a
-			color: #fff 
+			color: #707070 
 			+tr(color .3s)
 			&:hover
-				color: $red
-	&__soc
-		a
-			display: inline-block
-		span
-			width: 40px
-			display: inline-block
-			position: relative
-			text-align: center
-		.icon-fb
-			font-size: 18px
-		.icon-tw
-			font-size: 15px
-		.icon-ig
-			font-size: 16px
-		.icon-sc
-			font-size: 11px
-	&__title
-		margin-bottom: 45px
-		font-size: 14px
-		color: #fff 
-		+f900
-		text-transform: uppercase
-.copyright
-	+r($m)
-		position: absolute
-		bottom: -45px
-		left: 0
-	p
-		+r($m)
-			display: inline-block
-.subscribe
-	position: relative
-	&__input
-		display: block
-		padding: 0 60px 0 25px 
-		width: 100%
-		height: 50px
-		background: #2e2e30
-		border: 0
-		+tr(background .3s)
-		+f500
-		-webkit-border-radius: 2px 
-		border-radius: 2px 
-		font-size: 17px
-		color: $dark 
-		+placeholder
-			color: #8f8f8f 
-		&:focus
-			background: #FEFEFE 
-	.btn
-		position: absolute
-		right: 0
-		top: 0
-		height: 50px
-		width: 50px
-		border-radius: 0 2px 2px 0
-		line-height: 50px
-		-webkit-box-shadow: none 
-		box-shadow: none 
-		i
+				color: $primary 
+	&__meta
+		position: relative
+		padding: 30px 0 
+		font-size: 13px
+		color: #a1a1a1 
+		+light
+		&:before
+			content: ""
 			position: absolute
-			left: 50%
-			top: 50%
-			font-size: 13px
-			+transform(translate3d(-50%,-50%,0))
-.soc
-	li
-		display: inline-block
-		vertical-align: middle
-	a
-		display: block
-		width: 40px
-		height: 40px
-		color: #888 
-		line-height: 40px
-		text-align: center
-		+tr(color .3s)
-		&:hover
-			color: $red 
-		i
+			top: 0
+			left: 0
+			right: 0
+			height: 1px
+			background-image: linear-gradient(to right, #f9f9f9, #e5e5e5, #f9f9f9) 
+		span, a
 			display: inline-block
 			vertical-align: middle
-			 
-	.icon-fb
-		font-size: 18px
-	.icon-tw
-		font-size: 15px
-	.icon-ig
+			position: relative
+		a
+			display: inline-block
+			margin-left: 27px
+			position: relative
+			color: #a1a1a1 
+			+tr(color .3s)
+			&:hover
+				color: $primary
+				&:before
+					color: #a1a1a1 
+			&:before
+				content: "/"
+				position: absolute
+				left: -19px
+				top: 0 
+				color: #a1a1a1 
+				pointer-events: none
+				
+				
+.social
+	font-size: 0
+	a
+		display: inline-block
+		vertical-align: middle
+		margin-left: 23px
+		width: 32px
+		height: 32px
+		border-radius: 50% 
+		background: #6d6e71
+		text-align: center
+		line-height: 32px
 		font-size: 16px
-	.icon-sc
-		font-size: 11px
+		+tr(background .3s)
+		&:first-child
+			margin-left: 0
+		i
+			vertical-align: middle
+			color: #fff 
+	&__fb
+		&:hover
+			background: #3a5795
+	&__tw
+		&:hover
+			background: #55acee
+	&__go
+		&:hover
+			background: #d73d32 
+	&__ln
+		&:hover
+			background: #287bbc
+	&__yt
+		font-size: 18px
+		&:hover
+			background: #cc181e
+	&__vk
+		&:hover
+			background: #597DA3
+	
