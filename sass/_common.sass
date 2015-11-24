@@ -1,0 +1,1262 @@
+// # SHORT HOWTO
+// ## Sprites
+//     .whatever
+//          +sized-sprite($icons, coderiver) //or
+// 			+s(codedby) //gets default value for spritemap as $icons
+// ### animation example
+//     +include keyframes(rotate)
+//        from
+//           +rotate(0)
+//        to
+//           +rotate(360)
+// ## animation usage
+//     body:hover
+// 	    +animation(rotate 200s linear infinite)
+// ## animations easing, see easings.net for full list and examples, tnx @ai
+//     transition: all 1.2s ceaser($ease-in)
+// ## gradient example
+//     +background-image(linear-gradient(#232323, #5c5c5c));
+//     +g(#232323, #5c5c5c);
+//	   horizontal
+//     +gh(#232323, #5c5c5c);
+// ## making bw-images
+//     img
+//			@extend %gray
+// ## predefined media-queries: https://github.com/paranoida/sass-mediaqueries
+//     +min-screen(320)
+//			display: none
+// +max-screen(1000), +iphone5, +iphone4, +ipad-retina, +ipad, +hdpi - also available
+//
+// ## use cycles
+//     @for $i from 1 through 3
+//       .item-#{$i}
+//			width: 2em * $i;
+//     @each $s in a,b,c
+// 	    	#{$s}
+//				display: none
+// ## fonts
+// Save fonts to /css/fonts, after that write (eot, woff, ttf):
+// +font(book, cytiapro-black-webfont)
+// =book
+// 	font-family: "book", Arial, sans-serif
+// insert pics into css
+// div
+// 	+pic("blabla.png")
+// span
+// 	+png(blabla)
+// p
+// 	+jpg(bla)
+// =semi
+// 	font-family: OpenSans, sans-serif
+// 	font-weight: 600 
+// =bold
+// 	font-family: OpenSans, sans-serif
+// 	font-weight: 700
+// =extra
+// 	font-family: OpenSans, sans-serif
+// 	font-weight: 800
+
+
+body
+	font-family: Arial, sans-serif
+	font-size: 12px
+	line-height: 1.4
+html
+	font-size: 62.5% 
+a
+	text-decoration: none
+.l-center
+	max-width: 117rem
+	margin: 0 auto 
+	padding: 0 2rem 
+	+r(1200)
+		padding: 0 2rem 
+.out
+	overflow: hidden	
+.l-left
+	width: 60rem
+	float: left
+	+r(1169)
+		width: 63rem
+	+r(939)
+		width: 100%
+	&_big
+		width: 79rem
+		+r(939)
+			width: 100%
+.l-overflow
+	overflow: hidden
+.l-right
+	float: right
+.cleaner
+	+clr
+.header
+	padding: 3.8rem 0 8.3rem
+	margin-bottom: 3rem
+	+cover
+	+r(723)
+		padding: 0 0 8rem 
+		margin-bottom: 1.5rem
+	&__top
+		+clr
+		+r(723)
+			background: #e60948
+			padding: 2rem 
+			margin: 0 -2rem
+			position: relative
+			z-index: 10
+			   
+		.logo
+			float: left
+		.dropdown
+			float: right
+		
+
+	&__title
+		font-size: 4.9rem
+		color: #FFF 
+		+extra
+		text-align: center
+		margin: 1.3rem 10rem 2.6rem 
+		+r(1169)
+			margin: 1.2rem 3.5rem 3.5rem  
+		+r(939)
+			font-size: 3.9rem 
+			margin: 3rem 3.5rem 6rem  
+		+r(723)
+			font-size: 2.7rem
+			margin: 2.5rem 0 4.5rem  
+.logo
+	+svg(logo,217,73)
+	+r(723)
+		+svg(logo-mob,147,33)
+	
+
+.dropdown
+	position: relative
+	z-index: 9
+	+r(723)
+		position: static
+	&__btn
+		cursor: pointer
+		position: relative
+		z-index: 10
+		+r(723)
+			margin-top: 0.3rem
+		span
+			border-bottom: 1px dashed rgba(#fff, .7)
+			+transition(border-color .2s, color .2s)
+			line-height: 1
+			font-size: 1.9rem
+			+semi
+			vertical-align: middle
+			color: #fff 
+			+r(723)
+				font-size: 1.5rem
+		&:hover
+			span
+				border-color: transparent
+		&:active
+			span
+				color: #AB0736
+				border-color: #ab0736 
+			&:after
+				+svg(arr-d-col,13,7)
+		&:after
+			content: ""
+			+svg(arr-d,13,7)
+			display: inline-block
+			vertical-align: middle
+		&.is-active
+			&:hover
+				span
+					color: #AB0736
+					border-color: #ab0736 
+				&:after
+					+svg(arr-d-col,13,7)
+	&__list
+		position: absolute
+		right: -2.3rem
+		top: -4.3rem
+		background: $dropdown
+		box-shadow: 0 26px 13px rgba(0, 0, 0, 0.22)
+		min-width: 25rem
+		padding: 8.4rem  2rem 3rem
+		visibility: hidden 
+		opacity: 0
+		z-index: 9
+		+tr(opacity .2s)
+		+r(1024)
+			right: -2rem
+		+r(723)
+			padding: 2.3rem 2rem
+			top: 100%
+			left: 0
+			right: 0 
+		&.is-active
+			opacity: 1
+			visibility: visible 
+		li
+			margin-bottom: 2rem
+		a
+			color: #fff 
+			+norm
+			font-size: 2.2rem
+			border-bottom: 1px solid #fff
+			+transition(color .2s, border-color .2s)
+			line-height: 1
+			&:hover
+				border-color: #770526
+				color: #770526
+.dropdown-search
+	position: absolute
+	top: 100%
+	left: 0
+	right: 0
+	z-index: 10
+	display: none
+	&.to-show
+		display: block
+	&__list
+		background: #ebebeb
+		width: 100% 
+		position: absolute
+		top: 0
+		box-shadow: 0 26px 13px rgba(0, 0, 0, 0.13)
+		+r(723)
+			width: 120%
+			margin: 0 -10% 
+		a
+			width: 100%
+			display: block
+			padding: 1.5rem 2rem 
+			font-size: 1.8rem
+			color: $title
+			+semi
+			background: transparent
+			+transition(background-color .2s) 
+			+r(723)
+				font-size: 1.5rem
+				padding: 1.5rem 12% 1.5rem 10%
+			&:hover,
+			&:active
+				background-color: #dbdbdb 
+	.btn-close
+		position: absolute
+		top: 2rem
+		right: 2rem
+		z-index: 3 
+		+r(723)
+			right: -1rem
+			top: 1.5rem
+.btn-close
+	+svg(close,21,21)
+	&.is-pink
+		+svg(close-pink,41,41)		
+		+r(723)
+			+svg(close-pink,27,27)
+	&.is-white
+		+svg(close-white, 41,41)
+			
+.search
+	width: 90rem
+	margin: 0 auto
+	position: relative
+	border-radius: none !important
+	+r(1169)
+		width: 100%
+	input
+		width: 100%
+		height: 5rem
+		line-height: 5rem
+		border-radius: none !important
+		background: #FFF
+		padding: 0 14.5rem 0 2.2rem
+		color: #000
+		font-size: 2.1rem
+		+semi
+		+r(723)
+			font-size: 1.7rem	
+			padding: 0 8rem 0 1.3rem 
+	&__btn
+		position: absolute
+		padding: 0 2rem
+		height: 5rem
+		border-top: 4px solid transparent
+		font-size: 0
+		background: #ff115a
+		right: 0
+		top: 0 
+		span
+			font-size: 1.8rem
+			+semi
+			display: inline-block 
+			vertical-align: middle
+			margin-top: -4px
+			color: #fff 
+			&:after
+				content: ""
+				display: inline-block
+				vertical-align: middle
+				+svg(search,23,23)
+				margin-left: 1.3rem
+				+r(723)
+					margin-left: 0
+
+		em
+			font-style: normal
+			+r(723)
+				display: none
+		&:hover
+			background-color: #DC0447
+		&:active
+			border-color: #c0022f 
+.footer
+	padding: 2.5rem 0 2rem 
+	background: $footer
+	margin-top: 4rem
+	+r(939)
+		padding-bottom: 4.7rem 
+	&__left
+		float: left
+		margin-right: 6rem
+		+r(939)
+			float: none
+			margin-bottom: 2.5rem
+			margin-right: 0
+			
+	&__right
+		float: right
+		+r(723)
+			float: none
+	&__wrap
+		float: left
+		+r(723)
+			float: none
+	&__list
+		li
+			margin-bottom: 1rem
+		a
+			line-height: 1
+			border-bottom: 1px solid #fff
+			text-decoration: none
+			color: #FFF
+			font-family: arial, sans-serif
+			+transition(color .2s, border-color .2s) 
+			font-size: 1.7rem  
+			&:hover
+				color: #9c9c9c
+				border-color: #9c9c9c
+	.l-center
+		position: relative
+.btn-back
+	display: block
+	margin-bottom: 2rem
+	span
+		font-size: 1.6rem
+		color: #515151
+		+norm
+		border-bottom: 1px solid transparent
+		line-height: 1
+		+tr(border-color .2s)
+	&:hover
+		span
+			border-color: #515151
+.btn-wrap
+	font-size: 0
+	margin-bottom: 3.5rem
+	+r(723)
+		margin-bottom: 2.5rem
+	.btn
+		margin-right: 0.6rem
+		margin-bottom: .6rem 
+		vertical-align: middle
+		&:last-child
+			margin-right: 0
+		+r(600)
+			padding: 0 1.1rem
+			margin-right: 0 	
+		span
+			+r(723)
+				font-size: 1.6rem
+
+.btn
+	background: $btn 
+	height: 4.8rem 
+	padding: 0 1.7rem 
+	border-radius: 3px
+	line-height: 4.2rem
+	display: inline-block
+	border-top: 4px solid transparent
+	+transition(background-color .2s, border-color .2s)
+	&_wide
+		padding: 0 7.5rem 
+		span
+			font-size: 2rem !important
+		+r(723)
+			width: 100%
+	&_footer
+		padding: 0 1.9rem 
+		height: 4.6rem
+		border-radius: 0 0 0 0
+		+r(723)
+			padding: 0 1.1rem 
+		span
+			margin-right: 1rem
+			font-size: 1.5rem !important
+			font-family: Arial, sans-serif !important
+			font-weight: 700 !important 
+			+r(723)
+				margin-right: 1.2rem
+		&:hover
+			background: transparent !important 
+		&:active
+			background-color: $btn-active-foot !important  
+	span
+		color: #fff
+		+semi
+		font-size: 1.7rem 
+		vertical-align: middle
+		display: inline-block
+		margin-top: -4px
+	i
+		margin-top: -4px
+	&:hover
+		background-color: $btn-active
+	&:active
+		background-color: $btn-active
+		border-color: $btn-border  
+	
+.icon-mail
+	+svg(mail,29,22)
+	vertical-align: middle
+.share
+	width: 21.5rem
+	&__top
+		padding: 1.2rem 1.3rem
+		color: rgba(#FFF, .7)
+		+semi
+		font-size: 1.8rem 
+		border: 2px solid #434343
+		line-height: 1.4
+	&__bottom
+		border-right: 2px solid #434343
+		border-left: 2px solid #434343
+		border-bottom: 2px solid #434343
+		+clr
+	&__net
+		width: 50%
+		height: 4.8rem
+		float: left
+		text-align: center
+		border-right: 2px solid #434343
+		font-size: 0
+		+vertical
+		text-decoration: none 
+		background: transparent 
+		+transition(background-color .2s)
+		&:last-child
+			border-right: none 
+		span
+			opacity: .5
+			vertical-align: middle
+			+transition(opacity .2s)
+		&.is-face		
+			span
+				+svg(face,12,24)
+				
+		&.is-vk
+			span
+				+svg(vk,17,21)
+		&:hover,
+		&:active
+			background-color: #575757
+			span
+				opacity: .7 
+.copyright
+	position: absolute
+	font-size: 1.2rem
+	font-family: Arial, sans-serif
+	color: #B6B6B6
+	left: 2rem
+	bottom: -1.2rem 
+	+r(1169)
+		left: 2rem 
+	+r(939)
+		bottom: -2rem 
+	+r(723)
+		bottom: -3rem
+.title 	
+	+bold
+	color: $title
+	font-size: 3.1rem
+	+r(723)
+		font-size: 2.3rem
+	&.with-marg-minus
+		margin-top: -1.3rem
+	&_big
+		font-size: 4.3rem
+		margin-bottom: 0.7rem
+	&_small
+		color: $title 
+		font-size: 2rem
+		+bold
+		margin-bottom: 1.3rem
+		+r(723)
+			font-size: 1.6rem
+	&_med
+		color: #000
+		+semi
+		font-size: 2.9rem
+		margin-bottom: 2rem
+		+r(723)
+			font-size: 2.4rem
+			margin-bottom: 1.7rem 
+	&_xs
+		font-size: 1.7rem
+		color: #000
+		+semi
+.add
+	float: right
+	+r(1169)
+		display: none
+.found	
+	margin-bottom: 3.5rem
+	span
+		font-size: 1.9rem
+		color: $red
+		+norm 
+	.is-bold
+		+bold	
+.post
+	margin-bottom: 3.5rem
+	&__pre
+		color: $gray
+		font-size: 1.5rem
+		+norm
+	&__title
+		span
+			color: $title
+			font-size: 3.3rem
+			+bold
+			line-height: 1.2
+			vertical-align: middle
+	&__name
+		color: $title
+		font-size: 2rem
+		+bold
+		margin: .9rem 0 
+	&__info
+		color: #000
+		font-size: 1.5rem
+		+norm 
+		line-height: 1.6
+	.rating
+		display: inline-block
+		vertical-align: middle	
+.breadcrumbs
+	margin-bottom: 1.2rem
+	&__item
+		margin-left: 1.8rem 
+		margin-right: 1rem 
+		font-size: 1.6rem
+		color: $breadcrumbs
+		line-height: 1
+		+norm
+		white-space: normal
+		border-bottom: 1px solid transparent
+		+transition(border-color .2s)
+		position: relative
+		+r(723)
+			font-size: 1.4rem
+			margin: 0 .7rem 0 1.5rem 
+		&:before
+			content: ">"
+			position: absolute
+			left: -1.8rem
+			font-size: 1.6rem
+			+norm
+			color: $breadcrumbs 
+			+r(723)
+				font-size: 1.4rem
+				left: -1.5rem
+		&:hover
+			border-color: $breadcrumbs 
+		&.is-active
+			color: #979797
+			cursor: default
+			&:hover
+				border-color: transparent
+				color: #979797			 
+	li
+		display: inline-block
+		line-height: 1.2
+		&:first-child
+			a
+				margin-left: 0
+				&:before
+					display: none  
+.raty
+	text-align: justify
+	white-space: nowrap
+	line-height: 0
+	font-size: 0
+	float: left
+	img 
+		width: 1.9rem
+		height: 1.9rem
+		margin-left: .4rem
+		&:first-child
+			margin-left: 0 
+	img[src="img/svg/false"]
+		display: none
+.rating 
+	&__stars
+		display: inline-block
+		vertical-align: top
+		+clr
+	&__mark
+		display: inline-block
+		vertical-align: bottom
+		margin-left: 1.2rem
+		a
+			font-size: 1.6rem
+			color: #626262
+			+norm
+			border-bottom: 1px solid transparent
+			+tr(border-color .2s)
+			line-height: 1
+			&:hover
+				border-color: #626262
+	&__info
+		display: inline-block
+		vertical-align: middle
+		font-size: 1.8rem
+		color: #363636
+		margin-right: .9rem 
+		+norm  
+	&_small
+		.raty
+			img
+				width: 1.5rem
+				height: 1.5rem
+				margin-left: 0.3rem
+	&_big
+		.raty
+			img
+				width: 2.3rem
+				height: 2.3rem
+				margin-left: 0.7rem
+				
+.list
+	margin: 2rem 0 2.4rem
+	&__li
+		+clr
+		margin-bottom: 0.7rem
+	&__cell
+		min-width: 14rem
+		float: left
+		margin-right: 1rem
+		font-size: 1.2rem
+		color: #8D8D8D
+		+norm
+		text-transform: uppercase 
+		margin-top: .5rem  
+		+r(723)
+			display: none
+	&__info
+		overflow: hidden
+		color: #000
+		font-size: 1.7rem 
+		+r(723)
+			font-size: 1.5rem
+		+semi
+		a
+			color: #000
+			font-size: 1.7rem 
+			+semi
+			+r(723)
+				font-size: 1.5rem
+.networks
+	font-size: 0
+	&__li
+		display: inline-block
+		font-size: 0
+		margin-left: 0.5rem
+		&:first-child
+			margin-left: 0
+	&__btn
+		display: inline-block
+		width: 3rem
+		height: 3rem
+		border-radius: 50%
+		position: relative
+		vertical-align: middle
+		text-align: center
+		+transition(opacity .2s)
+		&:hover
+			opacity: .8
+		&:active
+			opacity: 1
+		i
+			display: inline-block
+			vertical-align: middle
+			font-style: normal 
+		&.is-vk
+			+vertical
+			background: #6996c7 
+			i
+				margin-left: 0.1rem
+				margin-top: 0.1rem
+				+svg(vk,13,15)		 
+		&.is-face
+			background: #496194
+			+vertical
+			i
+				+svg(face,8,16)
+		&.is-odn
+			+vertical
+			background: #ff9c43
+			i
+				+svg(odn,10,17)
+		&.is-twit
+			+vertical
+			background: #28C3FF
+			i
+				+svg(twit,17,14)
+.text
+	color: #000
+	font-size: 1.8rem
+	+norm
+	line-height: 1.5
+	margin-bottom: 2.3rem  
+	+r(723)
+		font-size: 1.5rem
+	&_small
+		font-size: 1.6rem
+		color: #515151
+		+norm 
+.comment
+	margin-bottom: 4.6rem
+	&__top
+		font-size: 0
+		margin-bottom: 1.3rem
+	&__name
+		display: inline-block
+		margin-top: 0.2rem
+		color: #000
+		+semi
+		font-size: 1.6rem
+		vertical-align: middle
+		margin-right: 1.9rem
+		line-height: 1
+		border-bottom: 2px solid transparent
+		+tr(border-color .2s)
+		&:hover,
+		&:active
+			border-color: #b0b0b0
+	.rating
+		display: inline-block
+		vertical-align: top
+	&__text
+		+italic
+		color: $text
+		font-size: 1.6rem
+		line-height: 1.5
+		+r(723)
+			font-size: 1.5rem
+
+	&__footer
+		font-size: 0
+		margin-top: 2.5rem
+		+r(723)
+			margin-top: 1.5rem
+	.btn-sceleton
+		margin-right: 0.8rem
+		+r(723)
+			margin-right: 0
+		&:last-child
+			margin-right: 0
+.photo-block
+	margin-top: 2.3rem
+	font-size: 0
+	+r(723)
+		margin: 2.5rem -.6rem 0 
+	&__img
+		width: 9.7rem
+		height: 6.4rem
+		display: inline-block
+		margin-right: 1rem
+		+r(723)
+			width: 9rem
+			height: 6rem
+			margin-right: 0.2rem
+			margin-bottom: 0.2rem
+			overflow: hidden
+		img
+			width: 100%
+			height: auto			
+.btn-sceleton
+	display: inline-block
+	height: 3.2rem
+	line-height: 3.2rem
+	border: 1px solid #cacaca
+	border-radius: 3px
+	padding: 0 1.5rem
+	font-size: 1.7rem
+	color: #7C7C7C
+	background: transparent
+	+norm
+	+transition(background-color .2s, border-color .2s)
+	+r(723)
+		padding: 0 1.3rem 
+	&:hover
+		border-color: #a7a7a7
+	&:active
+		border-color: #bdbdbd
+		background-color: #eee
+.paginator
+	width: 100%
+	text-align: center
+	font-size: 0
+	margin: 3.5rem 0
+	&__btn,
+	&__pages,
+		display: inline-block
+		vertical-align: middle
+	&__btn
+		text-align: center
+		width: 9.1rem 
+		height: 4rem
+		line-height: 3.8rem
+		border: 2px solid #dedede
+		color: #515151
+		+semi
+		border-radius: 3px
+		font-size: 1.6rem
+		+transition(color .2s, border-color .2s, background-color .2s)
+		+r(723)
+			font-size: 1.3rem
+			width: 7.3rem
+		&.is-inactive
+			color: #dedede 
+			cursor: default
+			&:hover
+				border-color: #dedede
+			&:active
+				background-color: transparent
+				border-color: #dedede
+				color: #dedede 
+		&.is-active
+			color: #323232
+			border-color: $btn 
+			cursor: default
+			&:hover
+				border-color: $btn
+			&:active
+				background-color: transparent
+				border-color: $btn
+				color: #323232 
+		&:hover
+			border-color: $btn
+		&:active
+			background-color: $btn
+			border-color: $btn
+			color: #7c4550
+	&__pages
+		margin: 0 .7rem
+		+r(723)
+			margin: 0 .2rem 
+		li
+			display: inline-block
+			vertical-align: middle
+			margin-left: .7rem
+			+r(723)
+				margin-left: .2rem 
+			&:first-child
+				margin-left: 0
+		.paginator__btn
+			width: 4.1rem 
+.to-comment
+	width: 100%
+	padding: 1.9rem 2rem 2.5rem
+	border: 1px solid $border
+	border-radius: 3px
+	background: #eaeaea
+	text-align: left
+	+r(939)
+		width: auto
+		margin: 0 -1.6rem 
+	+r(723)
+		padding: 2rem 1.5rem 
+	&__top
+		margin-bottom: 1.5rem 
+		+clr
+		.title_med
+			float: left
+			margin-bottom: 0
+			+r(723)
+				float: none
+				margin-bottom: 2rem 
+		.rating
+			float: right
+			padding-top: 0.9rem
+			+r(723)
+				float: none
+	&__file
+		font-size: 0
+		text-align: left
+	.textarea
+		margin-bottom: 2rem 
+	.input
+		margin-left: 1rem 
+		+r(723)
+			margin-left: 0
+			margin-bottom: .7rem 
+	.btn
+		margin-top: 2rem
+.MultiFile-label
+	position: relative
+	margin: 0 1.7rem 1rem 0
+	padding-right: 2.5rem
+	display: inline-block
+	vertical-align: middle
+	font-size: 1.4rem
+	color: #4e4e4e
+	cursor: pointer
+	&:hover
+		span
+			border-color: #4e4e4e
+		a
+			opacity: 1
+	span
+		border-bottom: 1px solid transparent 
+		+transition(border-color .2s)
+		width: 9rem
+		line-height: 1
+		+text-overflow 
+		display: inherit 
+
+	a
+		position: absolute
+		right: 0
+		top: 2px
+		font-size: 0
+		opacity: .8 
+		+tr(opacity .2s)
+		+svg(close-dpink,15,15)
+
+.textarea
+	width: 100%
+	textarea
+		width: 100%
+		resize: none
+		border: 1px solid $border
+		border-radius: 3px
+		height: 10rem
+		padding: 1.5rem 
+		color: #000
+		font-size: 1.7rem
+		+norm
+		box-shadow: inset -0.2px 3px 2px rgba(0, 0, 1, 0.08)
+.input
+	width: 26.2rem
+	display: inline-block
+	vertical-align: middle
+	+r(723)
+		display: block
+		width: 100%
+	input
+		width: 100%
+		height: 4.7rem
+		line-height: 4.7rem
+		border: 1px solid $border
+		border-radius: 3px
+		padding: 0 1.5rem
+		font-size: 1.6rem
+		color: #3E3E3E 
+		+norm
+		box-shadow: inset -0.2px 3px 2px rgba(0, 0, 1, 0.08)
+
+		  
+.download-name
+	cursor: pointer
+	display: inline-block
+	margin: 0 2rem 1rem 0
+	&.is-inactive
+		display: none
+	&:hover
+		span
+			border-color: #7f7f7f
+	span
+		font-size: 1.4rem
+		color: #4E4E4E
+		// display: inline-block
+		// vertical-align: middle
+		+norm
+		line-height: 1
+		border-bottom: 1px solid transparent
+		+transition(border-color .2s)
+	button
+		position: relative
+		width: 1.5rem 
+		height: 1.5rem
+		display: inline-block
+		vertical-align: middle
+		background-color: transparent
+		margin-left: .7rem
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+			left: 0
+			top: 0
+			height: .3rem
+			width: 1.8rem
+			background: $btn
+			border-radius: 2px
+			+rotate(45)
+			+tr(background-color .2s)
+		&:after
+			+rotate(-45)
+		&:hover
+			&:before,
+			&:after
+				background-color: $btn-hover 
+.download
+	display: inline-block
+	+r(723)
+		display: block
+		margin-bottom: 0.7rem
+	&__btn
+		
+		padding: .7rem 1.4rem 1.1rem
+		background: #D3D3D3 
+		border-top: 4px solid transparent
+		+transition(background-color .2s, border-color .2s)
+		vertical-align: middle
+		font-size: 1.6rem
+		&:before
+			content: ""
+			+svg(pin,8,20)
+			display: inline-block
+			vertical-align: middle
+			margin-right: 1rem 
+		&:hover
+			background-color: #bcbcbc 
+		&:active
+			background-color: #BCBCBC
+			border-color: #b1b1b1 
+		span
+			color: #595858
+.reply
+	+clr
+	margin-top: 2.5rem
+	margin-left: 2rem
+	+r(723)
+		margin-left: 0
+	&:last-child
+		margin-bottom: 2.5rem
+	&__img
+		+s(user)	
+		float: left
+		margin-right: 1.6rem
+	&__main
+		overflow: hidden
+	&__name
+		display: inline-block
+		vertical-align: middle	
+		font-size: 1.6rem
+		+semi
+		color: #000
+		margin-right: 1rem
+	&__text
+		margin-top: .5rem
+		font-size: 1.6rem
+		+norm
+		color: #5f5f5f
+		line-height: 1.6   
+.meta
+	display: inline-block
+	vertical-align: middle
+	font-size: 1.6rem
+	+norm
+	color: #000
+.popup
+	position: fixed
+	top: -1rem
+	bottom: -1rem
+	right: 0
+	left: 0
+	z-index: 50
+	background: #eaeaea 
+	display: none
+	+vertical
+	+r(939)
+		padding: 0 2rem
+	+rh(375)
+		overflow-y: auto 
+		padding: 2rem 1rem 3rem
+	&.is-active
+		display: block
+	.to-comment
+		border: none
+		padding: 0
+		margin: 0 0 3rem
+	.title_med
+		font-size: 2.1rem
+	&__in
+		max-width: 78rem 
+		padding-top: 1rem
+		position: relative
+		vertical-align: middle
+		display: inline-block
+	.btn-close
+		position: absolute
+		top: 0
+		right: -11rem 
+		+tr(top .2s)
+		&:active
+			top: 0.3rem 
+		+r(939)
+			right: 0
+		+r(723)
+			right: -5rem
+			top: 2rem
+		+r(400)
+			right: 0
+			top: -2rem
+	&__btn
+		padding: .9rem 6rem .8rem 
+		border: 3px solid #fff
+		border-radius: 3px
+		background-color: transparent
+		color: #fff
+		font-size: 2.5rem
+		display: inline-block
+		margin-top: 7.5rem
+		+transition(color .2s, background-color .2s)
+		+semi   
+		&:hover
+			color: $btn
+			background-color: #FFF
+		&:active
+			color: #FFF
+			background-color: $btn   
+	&__title
+		color: #FFF
+		+semi
+		font-size: 3.7rem
+		+r(723)
+			font-size: 2.2rem
+			+bold
+	&_inputs
+		.popup__in
+			max-width: 28rem
+			text-align: left
+		.title_med
+			font-size: 2.6rem
+			margin-bottom: 5.5rem
+			+r(723)
+				margin: 2rem 0 3.5rem
+				font-size: 2.1rem
+		.input
+			width: 100%
+			margin-bottom: 1rem
+			display: block			
+		.btn
+			width: 100%
+			margin-top: 3rem 
+			display: block
+		.btn-close
+			top: -2rem
+			right: -15rem
+			&:active
+				top: -1.7rem 
+			+r(723)
+				right: -5rem
+				top: .5rem
+			+r(400)
+				right: 0
+				top: -2rem
+
+	&_pink	
+		background: $btn
+		.popup__in
+			padding-top: 3.5rem 
+			+r(723)
+				padding-top: 8rem
+		.btn-close
+			top: -4rem
+			+r(1024)
+				right: -3rem
+			+r(1000)
+				right: 0
+			+r(723)
+				top: -2rem
+			// +r(400)
+			// 	top: -2rem
+			
+			&:active
+				top: -3.8rem 
+				+r(723)
+					top: -1.8
+				// +r(400)
+				// 	top: -rem
+		 
+.checkbox
+	position: relative
+	cursor: pointer
+	text-align: left
+	&__text
+		font-size: 2.3rem 
+		+norm
+		color: #000
+		+transition(color .2s)
+		padding-left: 5.5rem
+		display: block
+		+nosel 
+		+r(723)
+			font-size: 1.5rem
+			padding-left: 4.5rem 
+		i
+			position: absolute
+			left: 0
+			height: 3.5rem
+			width: 3.5rem
+			background: #FFF
+			+transition(border-color .2s) 
+			top: 50%
+			margin-top: -1.75rem 			
+			&:before
+				
+				content: ""
+				position: absolute
+				+svg(check,24,28)
+				top: 50%
+				left: 50%
+				margin: -14px 0 0 -12px
+				display: none
+
+	input
+		position: absolute
+		opacity: 0
+		z-index: 2
+		&:checked
+			+ span
+				i
+					&:before
+						display: block
+
+			 
+	 			
+
+	
+		
+
+
+
+
+
+
+
