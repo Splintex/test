@@ -40,8 +40,9 @@ head.ready(function() {
 	//     }
 	//     $(".js-file-name").removeClass("is-inactive");
 	// });
-	$(".js-close-popup").on("click", function() {
+	$(".js-btn-close").on("click", function() {
 		$(".js-popup").removeClass("is-active");
+		$(".js-dropdown-search").removeClass("to-show");
 	});
 	$(".js-reply").on("click",function(){
 		$(".js-popup-reply").addClass("is-active")
