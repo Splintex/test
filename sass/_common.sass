@@ -71,6 +71,8 @@ a
 	padding: 0 2rem 
 	+r(1200)
 		padding: 0 2rem 
+	+r(723)
+		padding: 0 1rem 
 .out
 	overflow: hidden	
 .l-left
@@ -78,11 +80,11 @@ a
 	float: left
 	+r(1169)
 		width: 63rem
-	+r(939)
+	+r(971)
 		width: 100%
 	&_big
 		width: 79rem
-		+r(939)
+		+r(971)
 			width: 100%
 .l-overflow
 	overflow: hidden
@@ -92,7 +94,7 @@ a
 	+clr
 .header
 	padding: 3.8rem 0 8.3rem
-	margin-bottom: 3rem
+	margin-bottom: 8.5rem
 	+cover
 	+r(723)
 		padding: 0 0 8rem 
@@ -117,15 +119,15 @@ a
 		color: #FFF 
 		+extra
 		text-align: center
-		margin: 1.3rem 10rem 2.6rem 
+		margin: 1.3rem 10rem 7.8rem 
 		+r(1169)
-			margin: 1.2rem 3.5rem 3.5rem  
+			margin: 1.2rem 3.5rem 7.8rem  
 		+r(939)
 			font-size: 3.9rem 
-			margin: 3rem 3.5rem 6rem  
+			margin: 3rem 3.5rem 7.8rem  
 		+r(723)
 			font-size: 2.7rem
-			margin: 2.5rem 0 4.5rem  
+			margin: 2.5rem 0 7.2rem  
 .logo
 	+svg(logo,217,73)
 	+r(723)
@@ -168,12 +170,12 @@ a
 			display: inline-block
 			vertical-align: middle
 		&.is-active
-			&:hover
-				span
-					color: #AB0736
-					border-color: #ab0736 
-				&:after
-					+svg(arr-d-col,13,7)
+			cursor: default
+			span
+				color: #AB0736
+				border-color: #ab0736 
+			&:after
+				+svg(arr-d-col,13,7)
 	&__list
 		position: absolute
 		right: -2.3rem
@@ -185,6 +187,7 @@ a
 		visibility: hidden 
 		opacity: 0
 		z-index: 9
+		text-align: right
 		+tr(opacity .2s)
 		+r(1024)
 			right: -2rem
@@ -200,21 +203,25 @@ a
 			margin-bottom: 2rem
 		a
 			color: #fff 
-			+norm
-			font-size: 2.2rem
-			border-bottom: 1px solid #fff
+			+semi
+			font-size: 1.9rem
+			// border-bottom: 1px solid #fff
 			+transition(color .2s, border-color .2s)
 			line-height: 1
 			&:hover
 				border-color: #770526
 				color: #770526
+			+r(723)
+				font-size: 1.5rem
 .dropdown-search
 	position: absolute
 	top: 100%
 	left: 0
-	right: 0
+	right: 13rem
 	z-index: 10
 	display: none
+	+r(723)
+		right: 6.3rem
 	&.to-show
 		display: block
 	&__list
@@ -223,9 +230,9 @@ a
 		position: absolute
 		top: 0
 		box-shadow: 0 26px 13px rgba(0, 0, 0, 0.13)
-		+r(723)
-			width: 120%
-			margin: 0 -10% 
+		// +r(723)
+		// 	width: 120%
+		// 	margin: 0 -10% 
 		a
 			width: 100%
 			display: block
@@ -246,9 +253,12 @@ a
 		top: 2rem
 		right: 2rem
 		z-index: 3 
+		&:active
+			top: 2.2rem
 		+r(723)
-			right: -1rem
 			top: 1.5rem
+			&:active
+				top: 1.7rem
 .btn-close
 	+svg(close,21,21)
 	&.is-pink
@@ -268,7 +278,6 @@ a
 	input
 		width: 100%
 		height: 5rem
-		line-height: 5rem
 		border-radius: 0 0 0 0
 		background: #FFF
 		padding: 0 14.5rem 0 2.2rem
@@ -294,6 +303,7 @@ a
 			vertical-align: middle
 			margin-top: -4px
 			color: #fff 
+			+tr(opacity .2s)
 			&:after
 				content: ""
 				display: inline-block
@@ -311,15 +321,17 @@ a
 			background-color: #DC0447
 		&:active
 			border-color: #c0022f 
+			span
+				opacity: .8
 .footer
 	padding: 2.5rem 0 2rem 
 	background: $footer
-	margin-top: 4rem
+	margin-top: 7.4rem
 	+r(939)
 		padding-bottom: 4.7rem 
 	&__left
-		float: left
-		margin-right: 6rem
+		// float: left
+		// margin-right: 6rem
 		+r(939)
 			float: none
 			margin-bottom: 2.5rem
@@ -333,9 +345,16 @@ a
 		float: left
 		+r(723)
 			float: none
+			text-align: center
+			
 	&__list
+		margin-bottom: 1rem
 		li
 			margin-bottom: 1rem
+			display: inline-block
+			margin-right: 0.9rem
+			+r(750)
+				display: block
 		a
 			line-height: 1
 			border-bottom: 1px solid #fff
@@ -343,15 +362,17 @@ a
 			color: #FFF
 			font-family: arial, sans-serif
 			+transition(color .2s, border-color .2s) 
-			font-size: 1.7rem  
+			font-size: 1.5rem  
 			&:hover
 				color: #9c9c9c
 				border-color: #9c9c9c
+			&:active
+				border-color: transparent
 	.l-center
 		position: relative
 .btn-back
 	display: block
-	margin-bottom: 2rem
+	margin-bottom: 5rem
 	span
 		font-size: 1.6rem
 		color: #515151
@@ -362,21 +383,30 @@ a
 	&:hover
 		span
 			border-color: #515151
+	&:active
+		span
+			border-color: transparent
 .btn-wrap
 	font-size: 0
 	margin-bottom: 3.5rem
+	+r(970)
+		text-align: center
 	+r(723)
 		margin-bottom: 2.5rem
 	.btn
 		margin-right: 0.6rem
 		margin-bottom: .6rem 
 		vertical-align: middle
+		font-size: 0
 		&:last-child
 			margin-right: 0
 		+r(600)
-			padding: 0 1.1rem
-			margin-right: 0 	
+			padding: 1.4rem 1.1rem
+			margin-right: 0 
+			height: auto
+			line-height: 1	
 		span
+			margin-top: -2px
 			+r(723)
 				font-size: 1.6rem
 
@@ -431,12 +461,18 @@ a
 	+svg(mail,29,22)
 	vertical-align: middle
 .share
-	width: 21.5rem
+	width: 25.6rem
+	+r(723)
+		margin: 0 auto
+	+r(480)
+		width: 100%
+		text-align: center
 	&__top
 		padding: 1.2rem 1.3rem
 		color: rgba(#FFF, .7)
-		+semi
-		font-size: 1.8rem 
+		font-family: Arial, sans-serif
+		font-weight: 700  
+		font-size: 1.5rem 
 		border: 2px solid #434343
 		line-height: 1.4
 	&__bottom
@@ -446,7 +482,7 @@ a
 		+clr
 	&__net
 		width: 50%
-		height: 4.8rem
+		height: 4.4rem
 		float: left
 		text-align: center
 		border-right: 2px solid #434343
@@ -490,12 +526,13 @@ a
 	+bold
 	color: $title
 	font-size: 3.1rem
+	margin-top: -1.3rem
 	+r(723)
 		font-size: 2.3rem
-	&.with-marg-minus
-		margin-top: -1.3rem
+	// &.with-marg-minus
+	
 	&_big
-		font-size: 4.3rem
+		font-size: 3.1rem
 		margin-bottom: 0.7rem
 	&_small
 		color: $title 
@@ -518,28 +555,43 @@ a
 		+semi
 .add
 	float: right
+	margin-top: -4px
 	+r(1169)
 		display: none
 .found	
-	margin-bottom: 3.5rem
+	margin-bottom: 5rem
 	span
 		font-size: 1.9rem
-		color: $red
+		color: $red		
+	&__bold
+		+bold		
+	&__result	
+		color: #6e6e6e
 		+norm 
-	.is-bold
-		+bold	
+		font-style: normal  
 .post
-	margin-bottom: 3.5rem
+	margin-bottom: 7.2rem
+	&:last-child
+		margin-bottom: 0
 	&__pre
 		color: $gray
 		font-size: 1.5rem
 		+norm
+		margin-bottom: 1.3rem
 	&__title
+		display: inline-block
+		&:hover
+			span
+				color: $text
+		&:active
+			span
+				color: $gray 
 		span
 			color: $title
-			font-size: 3.3rem
+			font-size: 3.1rem
+			+tr(color .2s)
 			+bold
-			line-height: 1.2
+			line-height: 1.4
 			vertical-align: middle
 	&__name
 		color: $title
@@ -553,13 +605,12 @@ a
 		line-height: 1.6
 	.rating
 		display: inline-block
-		vertical-align: middle	
 .breadcrumbs
-	margin-bottom: 1.2rem
+	margin-bottom: 5.5rem
 	&__item
 		margin-left: 1.8rem 
 		margin-right: 1rem 
-		font-size: 1.6rem
+		font-size: 1.4rem
 		color: $breadcrumbs
 		line-height: 1
 		+norm
@@ -628,6 +679,8 @@ a
 			line-height: 1
 			&:hover
 				border-color: #626262
+			&:active
+				border-color: transparent
 	&__info
 		display: inline-block
 		vertical-align: middle
@@ -649,10 +702,10 @@ a
 				margin-left: 0.7rem
 				
 .list
-	margin: 2rem 0 2.4rem
+	margin: 4rem 0 2.4rem
 	&__li
 		+clr
-		margin-bottom: 0.7rem
+		margin-bottom: 2rem
 	&__cell
 		min-width: 14rem
 		float: left
@@ -664,6 +717,8 @@ a
 		margin-top: .5rem  
 		+r(723)
 			display: none
+		&.is-nets
+			margin-top: .8rem
 	&__info
 		overflow: hidden
 		color: #000
@@ -729,7 +784,7 @@ a
 	font-size: 1.8rem
 	+norm
 	line-height: 1.5
-	margin-bottom: 2.3rem  
+	margin-bottom: 2.7rem  
 	+r(723)
 		font-size: 1.5rem
 	&_small
@@ -752,9 +807,10 @@ a
 		line-height: 1
 		border-bottom: 2px solid transparent
 		+tr(border-color .2s)
-		&:hover,
-		&:active
+		&:hover
 			border-color: #b0b0b0
+		&:active
+			border-color: transparent
 	.rating
 		display: inline-block
 		vertical-align: top
@@ -773,8 +829,6 @@ a
 			margin-top: 1.5rem
 	.btn-sceleton
 		margin-right: 0.8rem
-		+r(723)
-			margin-right: 0
 		&:last-child
 			margin-right: 0
 .photo-block
@@ -782,11 +836,12 @@ a
 	font-size: 0
 	+r(723)
 		margin: 2.5rem -.6rem 0 
+		padding: 0 .8rem 
 	&__img
 		width: 9.7rem
 		height: 6.4rem
 		display: inline-block
-		margin-right: 1rem
+		margin-right: 1.5rem
 		+r(723)
 			width: 9rem
 			height: 6rem
@@ -884,7 +939,7 @@ a
 	border-radius: 3px
 	background: #eaeaea
 	text-align: left
-	+r(939)
+	+r(970)
 		width: auto
 		margin: 0 -1.6rem 
 	+r(723)
@@ -909,7 +964,7 @@ a
 	.textarea
 		margin-bottom: 2rem 
 	.input
-		margin-left: 1rem 
+		margin-right: 1rem 
 		+r(723)
 			margin-left: 0
 			margin-bottom: .7rem 
@@ -969,7 +1024,6 @@ a
 	input
 		width: 100%
 		height: 4.7rem
-		line-height: 4.7rem
 		border: 1px solid $border
 		border-radius: 3px
 		padding: 0 1.5rem
@@ -1027,7 +1081,8 @@ a
 	display: inline-block
 	+r(723)
 		display: block
-		margin-bottom: 0.7rem
+		margin-top: 2rem
+		text-align: center
 	&__btn
 		
 		padding: .7rem 1.4rem 1.1rem
@@ -1036,6 +1091,7 @@ a
 		+transition(background-color .2s, border-color .2s)
 		vertical-align: middle
 		font-size: 1.6rem
+		border-radius: 3px
 		&:before
 			content: ""
 			+svg(pin,8,20)

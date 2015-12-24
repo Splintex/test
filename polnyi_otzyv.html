@@ -143,7 +143,7 @@
 						</div>
 					</li>
 					<li class="list__li">
-						<div class="list__cell">
+						<div class="list__cell is-nets">
 							Группы в соцсетях
 						</div>
 						<div class="list__info">
@@ -255,20 +255,21 @@
 						<div class="to-comment__file js-files-list">
 						</div>
 						<div>
-							<div class="download">
-								<button type="button" class="download__btn js-btn-file">
-									<span>Файл</span>
-								</button>
-								<input type="file" class="js-file-input" maxlength="5" hidden multiple>
-							</div>
+							
 							<div class="input">
 								<input type="text" placeholder="Представьтесь">
 							</div>
 							<div class="input">
 								<input type="email" placeholder="Ваш e-mail (не публикуется)">
 							</div>
+							<div class="download">
+								<button type="button" class="download__btn js-btn-file">
+									<span>Файл</span>
+								</button>
+								<input type="file" class="js-file-input" maxlength="5" hidden multiple>
+							</div>
 						</div>
-						<div>
+						<div class="to-comment__wrap">
 							<button type="submit" class="btn btn_wide">
 								<span>Отправить</span>
 							</button>
@@ -291,12 +292,6 @@
 		<div class="cleaner">
 			<div class="footer__wrap">
 				<div class="footer__left">
-					<button class="btn btn_footer js-feedback" type="submit">
-						<span>Отправить сообщение</span>
-						<i class="icon-mail"></i>
-					</button>				
-				</div>
-				<div class="footer__left">
 					<ul class="footer__list">
 						<li>
 							<a href="#">
@@ -315,6 +310,13 @@
 						</li>
 					</ul>
 				</div>
+				<div class="footer__left">
+					<button class="btn btn_footer js-feedback" type="submit">
+						<span>Отправить сообщение</span>
+						<i class="icon-mail"></i>
+					</button>				
+				</div>
+				
 			</div>
 			<div class="footer__right">
 				<div class="share">
