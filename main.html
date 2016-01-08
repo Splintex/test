@@ -6,9 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone=no">
 	<!-- theme color for android 5.0 -->
-	<meta name="theme-color" content="#fff"> 
-	<!-- <meta name="viewport" content="width=1200"> -->
-	<!-- <meta name="viewport" content="initial-scale=1, user-scalable=no"> -->
+	<meta name="theme-color" content="#dd5f32">
 	<link rel="stylesheet" media="all" href="css/screen.css" >
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
@@ -22,9 +20,10 @@
 				<a href="#" class="logo"></a>
 				<div class="dropdown">
 					<div class="dropdown__btn js-btn-dropdown">
+						<em> Регион:</em>
 						<span>Москва</span>
 					</div>
-					<ul class="dropdown__list js-list-dropdown">
+					<ul class="dropdown__list">
 						<li>
 							<a href="#">
 								Тамбов
@@ -57,43 +56,46 @@
 				Обсуждаем работу депутатов, отстаиваем свои права
 			</div>
 			<div class="search">
-				<input type="text" placeholder="Поиск по адресу или названию|">
-				<button type="button" class="search__btn">
-					<span><em>Найти</em></span>
-				</button>
-				<div class="dropdown-search js-dropdown-search to-show">
-					<button class="btn-close js-btn-close" type="button">
+				<form>
+					<input class="js-input-search" type="text" placeholder="Поиск учреждения">
+					<button type="button" class="search__btn">
+						<i></i>
 					</button>
-					<ul class="dropdown-search__list"> 
-						<li>
-							<a href="#">
-								Управление внутренних дел г. Москвы
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								Управление по правам человека
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								Управление по правам человека
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								Управление по правам человека
-							</a>
-						</li>
-					</ul>
-				</div>
+					<button type="reset" class="btn-delete js-clear-search">
+					</button>
+					<div class="dropdown-search js-dropdown-search">
+						
+						<ul class="dropdown-search__list"> 
+							<li>
+								<a href="#">
+									Управление внутренних дел г. Москвы
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Управление по правам человека
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Управление по правам человека
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Управление по правам человека
+								</a>
+							</li>
+						</ul>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 	<div class="l-center">
 		<div class="cleaner"> 
 			<div class="l-left">
-				<div class="title with-marg-minus">
+				<div class="title">
 					Государственные и муниципальные учреждения г. Москвы
 				</div>
 				<ul class="accord">
@@ -158,9 +160,73 @@
 						</ul>
 					</li>
 				</ul>
+				<ul class="accord">
+					<li class="accord__title js-accord-title">
+						<span>Федеральное собрание Российской Федерации</span>
+						<ul class="accord__body js-accord-body">
+							<li class="accord__title js-accord-title">
+								<span>Государственная дума</span>
+								<ul class="accord__body js-accord-body">
+									<li class="accord__link"><a href="#">ЛДПР</a></li>
+									<li class="accord__link"><a href="#">КПРФ</a></li>
+									<li class="accord__link"><a href="#">Единая Россия</a></li>
+									<li class="accord__link"><a href="#">Яблоко</a></li>
+									<li class="accord__link"><a href="#">Справедливая Россия</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="accord__title js-accord-title">
+						<span>Совет Федерации Федерального собрания Российской Федерации</span>
+						<ul class="accord__body js-accord-body">
+							<li class="accord__title js-accord-title">
+								<span>Государственная дума</span>
+								<ul class="accord__body js-accord-body">
+									<li class="accord__link"><a href="#">ЛДПР</a></li>
+									<li class="accord__link"><a href="#">КПРФ</a></li>
+									<li class="accord__link"><a href="#">Единая Россия</a></li>
+									<li class="accord__link"><a href="#">Яблоко</a></li>
+									<li class="accord__link"><a href="#">Справедливая Россия</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="accord__title js-accord-title">
+						<span>Совет Федерации Федерального собрания </span>
+						<ul class="accord__body js-accord-body">
+							<li class="accord__title js-accord-title">
+								<span>Государственная дума</span>
+								<ul class="accord__body js-accord-body">
+									<li class="accord__link"><a href="#">ЛДПР</a></li>
+									<li class="accord__link"><a href="#">КПРФ</a></li>
+									<li class="accord__link"><a href="#">Единая Россия</a></li>
+									<li class="accord__link"><a href="#">Яблоко</a></li>
+									<li class="accord__link"><a href="#">Справедливая Россия</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="accord__title js-accord-title">
+						<span>Федеральное собрание Российской Федерации</span>
+						<ul class="accord__body js-accord-body">
+							<li class="accord__title js-accord-title">
+								<span>Государственная дума</span>
+								<ul class="accord__body js-accord-body">
+									<li class="accord__link"><a href="#">ЛДПР</a></li>
+									<li class="accord__link"><a href="#">КПРФ</a></li>
+									<li class="accord__link"><a href="#">Единая Россия</a></li>
+									<li class="accord__link"><a href="#">Яблоко</a></li>
+									<li class="accord__link"><a href="#">Справедливая Россия</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 			<div class="add">
-				<img src="http://placehold.it/300x500">
+				<div class="add__in js-sticky-add">
+					<a href="#"><img src="http://placehold.it/300x500" width="300"></a>
+				</div>
 			</div>
 		</div>
 		
@@ -243,6 +309,10 @@
 </div>
 <!-- END out-->
 <!-- load scripts -->
-<script src="js/lib/head.js" data-headjs-load="js/init.js"></script>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/head.js"></script>
+<script src="js/lib/jquery.raty.js"></script>
+<script src="js/lib/jquery.MultiFile.pack.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
